@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block menujs %}
+<script>
+    //선택된 메뉴
+    $(".product").addClass("on");
+    $("#{{product.name}}").addClass("on");
+    sub_webLeftGnb();
+</script>
+{% endblock menujs %}
+
+{% block content %}
+<div class="page_contents">
+    <div class="tit_box_wrap">
+        <div class="tit_box">
+            <h2 class="tit02">
+                <span class="back_bt onlym" onclick="javascript:history.back();"></span>
+                {{product.name}} <span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+            </h2>
+
+            <!-- 모바일 상단 제품 선택 메뉴 -->
+            <div class="pr_tabbox_slide_wrap">
+                <div class="pr_tabbox_slide onlym">
+                    <ul class="swiper-wrapper">
+                        
+                        {% for item in product_queryset %}
+                            {% if item == product %}
+                                <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/{{item.name}}">{{item.name}}</a></li>
+                            {% else %}
+                                <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/{{item.name}}">{{item.name}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                    </ul>
+                </div>
+                <a class="move_bt move_bt_left"><img src="/resources/images/sub/pr_tabbox_left_bt_off.png" alt=""></a>
+                <a class="move_bt move_bt_right"><img src="/resources/images/sub/pr_tabbox_right_bt_off.png" alt=""></a>
+            </div>
+            <!-- 모바일 상단 제품 선택 메뉴 끝 -->
+
+            <p class="product_txt">대략적인 설명</p>
+        </div>
+        
+        <div class="navbox">
+            <ul>
+                <li><img src="/resources/images/common/page_nav_icon.jpg" alt=""></li>
+                <span> > </span>
+                <li>제품소개</li>
+                <span> > </span>
+                <li class="on">{{product.name}}</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="product_wrap">
+        <p class="explanation">{{product.description}}</p>
+        <div class="product_img_box">
+            <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
+        </div>
+        <div class="pd_info_table_wrap onlyweb">
+            <h3><span>라인</span>제품사양</h3>
+                <p><img  src="{{product.product_features_image.url}}" alt=""></p>     
+        </div>
+    </div>
+        <div class="pd_info_table_wrap onlym">
+            <div class="m_pd_info_tablebox">
+                <h4>KCP-50 <span>arrow</span></h4>
+                <div class="m_pd_infobox">
+                    제원 테이블 이미지
+                </div>
+            </div>
+            <div class="m_pd_info_tablebox">
+                <h4>KCP-50 <span>arrow</span></h4>
+                <div class="m_pd_infobox">
+                    제원 테이블 이미지
+                </div>
+            </div>
+            <div class="m_pd_info_tablebox">
+                <h4>KCP-50 <span>arrow</span></h4>
+                <div class="m_pd_infobox">
+                    제원 테이블 이미지
+                </div>
+            </div>
+            <div class="m_pd_info_tablebox">
+                <h4>KCP-50 <span>arrow</span></h4>
+                <div class="m_pd_infobox">
+                    제원 테이블 이미지
+                </div>
+            </div>
+            <div class="m_pd_info_tablebox">
+                <h4>KCP-50 <span>arrow</span></h4>
+                <div class="m_pd_infobox">
+                    제원 테이블 이미지
+                </div>
+            </div>
+            
+        </div>
+
+</div>
+{% endblock content %}
+    

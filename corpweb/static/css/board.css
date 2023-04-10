@@ -1,0 +1,89 @@
+/*공지사항 css 시작 --------------------------------------------------------------------------------------*/
+div.board_wrap{margin:90px 0 0 0;border-top:2px solid #414141;}
+div.board_list_wrap{margin:10px 0 0 0;}
+div.board_wrap div.board_tit{padding:14px 25px; border-bottom:1px solid #999; overflow:hidden;}
+div.board_wrap div.board_tit input{width:100%; height:30px; line-height:30px; padding:0px 15px; color:#343232; font-size:15px; font-weight:bold; border:1px solid #e5e5e5;}
+div.board_tit h3.tit_txt{width:80%; float:left; color:#343232; font-weight:bold; font-size:16px;}
+div.board_tit span.board_date{width:20%; float:right; display:block; font-size:12px; color:#666; padding-left:5%;}
+
+div.board_wrap div.board_con{width:100%; height:450px; padding:15px 25px; border-bottom:1px solid #cccccc;}
+div.board_wrap div.board_con textarea{width:100%; height:410px; max-width:100%; max-height:410px; border:1px solid #e5e5e5; color:#343232; padding:20px; text-align:left; overflow-y:auto; box-sizing:border-box;}
+div.board_wrap div.board_con pre{width:100%; height:410px; max-width:100%; max-height:410px; text-align:left; overflow-y:auto; box-sizing:border-box;}
+div.board_bts{margin-top:40px; text-align:center;}
+div.board_bts ul{overflow:hidden; font-size:0; text-align:center;}
+div.board_bts ul li{display:inline-block;}
+div.board_bts ul li a{display:block; font-size:14px; color:#999; font-family:'NanumSquareL'; width:50px; height:28px; line-height:26px; text-align:center; border:1px solid #a0a0a0; border-radius:4px; margin:0 5px; transition:all 0.2s ease;}
+div.board_bts ul li a:hover{background:#0f69c4; color:#fff; border:1px solid #0f69c4;}
+
+@media screen and (max-width:1040px){
+div.board_wrap{margin:15px 15px 0 15px;}
+div.board_wrap div.board_tit{padding:10px 3%;}
+div.board_wrap div.board_tit input{font-size:12px; padding:0 3%;}
+div.board_tit h3.tit_txt{font-size:14px;}
+div.board_tit span.board_date{font-size:11px;}
+
+div.board_wrap div.board_con{padding:10px 3%; height:180px; }
+div.board_wrap div.board_con textarea{padding:15px 3%; font-size:12px; height:150px; max-width:100%; max-height:150px;}
+div.board_wrap div.board_con pre{font-size:12px; height:150px; max-width:100%; max-height:150px;}
+div.board_bts{margin-top:20px;}
+div.board_bts ul li a{font-size:12px;}
+}
+
+/*게시판 리스트css 시작 -----------------------------------------------------------------------------------------------------------------*/
+div.search_box{margin-top:40px; overflow:hidden;}
+div.board_select_box{/* width:30%; */ width:115px; height:37px; display:block; float:left;}
+div.board_select_box select{width:100%; height:37px; line-height:37px; padding:0 10px; font-size:16px; border:1px solid #ddd; color:#343434;
+-webkit-appearance: none; -moz-appearance: none;	appearance: none;}
+div.board_select_box select::-ms-expand{display:none;	}
+div.board_input_box{width:40%; height:37px; margin-left:10px; position:relative; display:block; float:left;}
+div.board_input_box input.board_input{position:absolute; width:100%; height:37px;top:0; left:0; z-index:1; padding:2px 22% 2px 10px; border:1px solid #ddd; color:#343434;font-size:18px;}
+div.board_input_box button.btn_sch{position:absolute; width:20%; height:37px; top:0; right:0; z-index:2;
+margin:0;padding:0;border:0;background-color:transparent;font:inherit;color:inherit;cursor:pointer;outline:none; overflow:hidden; text-indent:-999px;
+background:url('../images/common/board_search_icon.png')no-repeat center center; background-size:15px;}
+div.board_list_wrap div.board_tit{padding:14px 0;}
+div.board_list_wrap div.board_tit ul.board_tit_wrap{width:100%;}
+div.board_list_wrap div.board_tit ul.board_tit_wrap li{float:left;text-align:center; padding:0 5px; font-size:16px;word-wrap:break-word;}
+div.board_list_wrap div.board_tit ul.board_tit_wrap li.b_num{width:15%;}
+div.board_list_wrap div.board_tit ul.board_tit_wrap li.b_tit{width:65%; text-align:left; text-align:center;}
+div.board_list_wrap div.board_tit ul.board_tit_wrap li.b_date{width:20%;}
+
+div.board_list_wrap div.board_con{padding:0; height:auto; border-bottom:0;}
+div.board_list_wrap div.board_con ul.board_con_wrap{width:100%; border-bottom:1px solid #414141; overflow:hidden;}
+div.board_list_wrap div.board_con ul.board_con_wrap li{float:left;text-align:center; padding:12px 5px; font-size:16px; word-wrap:break-word;}
+div.board_list_wrap div.board_con ul.board_con_wrap li.b_num{width:15%;}
+div.board_list_wrap div.board_con ul.board_con_wrap li.b_tit{width:65%; text-align:left;}
+div.board_list_wrap div.board_con ul.board_con_wrap li.b_tit a{white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+div.board_list_wrap div.board_con ul.board_con_wrap li.b_date{width:20%;}
+
+div.board_list_wrap div.board_bts ul{text-align:right;}
+
+@media screen and (max-width:430px){
+div.board_list_wrap div.board_tit ul.board_tit_wrap li.b_tit{width:57%; text-align:left;}
+div.board_list_wrap div.board_tit ul.board_tit_wrap li.b_date{width:28%;}
+
+div.board_list_wrap div.board_con ul.board_con_wrap li.b_tit{width:57%; text-align:left;}
+div.board_list_wrap div.board_con ul.board_con_wrap li.b_date{width:28%;}
+}
+
+@media screen and (max-width:1040px){
+div.board_select_box{width:40%;}
+div.board_input_box{width:58%;margin-left:2%;}
+div.board_select_box select{font-size:12px;}
+div.board_list_wrap div.board_tit ul.board_tit_wrap li{font-size:12px;}
+div.board_list_wrap div.board_con ul.board_con_wrap li{font-size:12px;}
+div.search_box{padding:0px 15px 0 15px; margin-top:10px;}
+}
+/*게시판 리스트css 끝 -----------------------------------------------------------------------------------------------------------------*/
+
+/*공지사항 css끝---------------------------------------------------------------------------------------*/
+
+
+/*공지사항 반응형 css*/
+@media screen and (max-width:1140px){
+
+}
+
+@media screen and (max-width:960px){
+
+}
+/* *공지사항 반응형 css 끝*/

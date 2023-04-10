@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block menujs %}
+<script>
+    //선택된 메뉴
+    $(".inquiry").addClass("on");
+    $("#sub_inquiry").addClass("on");
+    sub_webLeftGnb();
+</script>
+<script>
+    function showConfirmMessage() {
+      // display confirmation message
+      var confirmed = confirm("문의 하시겠습니까?");
+      // return true if user confirms, false otherwise
+      return confirmed;
+    }
+</script>
+{% endblock menujs %}
+
+{% block content %}
+
+<div class="page_contents">
+    <div class="tit_box_wrap">
+        <div class="tit_box">
+            <h2>
+                <span class="back_bt onlym" onclick="javascript:history.back();"></span>
+                제품문의 <span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+            </h2>
+            <h3 class="mobile_txt">최고의 고품질의 제품으로 보답하겠습니다.</h3>
+            <p>문의전화나 글 남겨주시면 정성을 다해 안내해 드립니다.</p>
+        </div>
+        <div class="navbox">
+            <ul>
+                <li><img src="/resources/images/common/page_nav_icon.jpg" alt=""></li>
+                <span> > </span>
+                <li>제품문의</li>
+                <span> > </span>
+                <li class="on">제품문의</li>
+            </ul>
+        </div>
+    </div>
+    <div class="inquiry_wrap">
+        <div class="inquiry">
+            <form action="{% url 'inquiry:inquiry' %}" method="post">
+                {% csrf_token %}
+                <div class="inquiry_inputbox">
+                    <h4><span><img src="/resources/images/sub/inquiry_icon01.jpg" alt=""></span>업체명 혹은 성함</h4>
+                    <p>{{form.name}}</p>
+                </div>
+                <div class="inquiry_inputbox">
+                    <h4><span><img src="/resources/images/sub/inquiry_icon02.jpg" alt=""></span>이메일</h4>
+                    <p>{{form.email}}</p>
+                </div>
+                <div class="inquiry_inputbox">
+                    <h4><span><img src="/resources/images/sub/inquiry_icon03.jpg" alt=""></span>문의내용</h4>
+                    <p>{{form.context}}</p>
+                </div>
+                <div class="board_bts">
+                    <ul>
+                        <li class="inquiry_bt"><input style="background-color: #0f69c4;
+                                                            color: white;
+                                                            font-size:14px;
+                                                            border: none;
+                                                            padding: 10px 20px;
+                                                            border-radius: 5px;
+                                                            cursor: pointer;" type="submit" value="문의하기" onclick="return showConfirmMessage()"></li>
+                    </ul>
+                </div>
+            </form>>
+        </div>
+        <ul class="inquiry_info">
+            <li>
+                <img src="/resources/images/sub/inquiry_infoicon01.jpg" alt="">
+                <h4>영업ㆍ진행 문의</h4>
+                <p>+82.31.355.8170</p>
+            </li>
+            <li>
+                <img src="/resources/images/sub/inquiry_infoicon02.jpg" alt="">
+                <h4>Fax</h4>
+                <p>+82.31.355.8169</p>
+            </li>
+            <li>
+                <img src="/resources/images/sub/inquiry_infoicon03.jpg" alt="">
+                <h4>E-mail</h4>
+                <p>kdpress2028@hanmail.net</p>
+            </li>
+        </ul>
+    </div>
+
+</div>
+{% endblock content %}
+    

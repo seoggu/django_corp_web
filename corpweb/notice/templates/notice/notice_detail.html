@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+
+{% block menujs %}
+<script>
+    $(".notice").addClass("on");
+    $("#sub_notice").addClass("on");
+
+    sub_webLeftGnb();
+</script>
+{% endblock menujs %}
+    
+
+{% block content %}
+<div class="page_contents">
+    <div class="tit_box_wrap">
+        <div class="tit_box">
+            <h2>
+                <span class="back_bt onlym" onclick="javascript:history.back();"></span>
+                공지사항 & 뉴스 <span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+            </h2>
+            <h3 class="mobile_txt">최고의 고품질의 제품으로 보답하겠습니다.</h3>
+        </div>
+        <div class="navbox">
+            <ul>
+                <li><img src="/resources/images/common/page_nav_icon.jpg" alt=""></li>
+                <span> > </span>
+                <li>공지사항</li>
+                <span> > </span>
+                <li class="on">공지사항 & 뉴스</li>
+            </ul>
+        </div>
+    </div>
+    <div class="board_wrap">
+        <div class="board_tit">
+            <h3 class="tit_txt">{{notice.title}}</h3>
+            <span class="board_date">{{notice.created_at|date:"Y-m-d"}}</span>
+        </div>
+        <div class="board_con">
+            <pre>{{notice.context}}</pre>
+            <hr>
+            
+        </div>
+        <div class="board_bts">
+            <ul>
+                <li class="board_list_bt"><a href="/notice">목록</a></li>
+            </ul>
+        </div>
+    </div>
+</div>   
+{% endblock content %}
+    

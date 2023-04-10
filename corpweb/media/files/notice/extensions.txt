@@ -1,0 +1,22 @@
+python Extension Pack - don
+
+sqlite viewer
+
+jupyter
+juypyter cell tags
+jupyter keymap
+ jupyter notebook renderers
+jupyter slide show
+
+pylance
+python
+python indent
+
+jinja
+ipython
+
+intellicode 
+intellicode api usage
+docker
+djaneiro
+auto docstring

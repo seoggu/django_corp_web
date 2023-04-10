@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta name="keywords" content="">
+		<title>극동프레스</title>
+
+		
+
+
+
+
+
+    
+    
+        <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/sub.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/board.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/swiper.min.css' %}">
+
+        <script type="text/javascript" src="{% static 'js/jquery-1.12.0.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/sub.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/swiper.js' %}"></script>
+    
+
+
+
+
+	</head>
+	<body>
+		<!-- 웹 페이지 시작 -->
+		<div class="wrap subpage_wrap">
+            <!-- PC left menu -->
+            <div class="left_menu">
+                <div class="left_main_menu">
+                    <h3><a href="/"><img src="/resources/images/common/logo.png" alt="logo"></a></h3>
+                    <ul class="gnb">
+                        <li class ="company"><a href="/company/introduction">회사소개</a></li>
+                        <li class ="product"><a href="/product/{{product_queryset.first.name}}">제품소개</a></li>
+                        <li class ="inquiry"><a href="/inquiry">제품문의</a></li>
+                        <li class ="notice"><a href="/notice">공지사항</a></li>
+                    </ul>
+                    <ul class="country_bt">
+                        <li><a href="/">KOR</a></li>
+                        <li><a href="/cn/home">中文</a></li>
+                    </ul>
+
+
+                    <div class="footer">
+                        <div class="ft_top">
+                            <p>경기도 화성시 송산면<br>송산산단길 123</p>
+                        </div>
+                        <div class="ft_bot">
+                            <p>㈜극동프레스<br>Copyright(c)<br>KUKDONG PRESS.<br>All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="left_sub_menu">
+                    <ul class="submenu01 company">
+                        <li id="introduction"><a href="/company/introduction">인사말</a></li>
+                        <li id="history"><a href="/company/history">회사연혁</a></li>
+                        <li id="mainbusiness"><a href="/company/mainbusiness">주요업무</a></li>
+                        <li id="organizationchart"><a href="/company/organizationchart">조직도</a></li>
+                        <li id="map"><a href="/company/map">찾아오시는길</a></li>
+                    </ul>
+                    <ul class="submenu02 product">
+                        
+                        {% for product in product_queryset %}
+                        <li id="{{product.name}}"><a href="/product/{{product.name}}">{{product.name}}</a></li> 
+                        {% endfor %}
+                    </ul>
+                    <ul class="submenu03 inquiry">
+                        <li id="sub_inquiry"><a href="/inquiry">제품문의</a></li>
+                    </ul>
+                    <ul class="submenu04 notice">
+                        <li id="sub_notice"><a href="/notice">공지사항 & 뉴스</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- PC left menu 끝 -->
+            
+            <!-- 메뉴 활성화 표시 -->
+            {% block menujs %}
+                
+            {% endblock menujs %}
+            <!-- 메뉴 활성화 표시 끝 -->
+            <div class="page_wrap page_wrap2">
+                <!-- content -->
+                {% block content %}
+                
+                {% endblock content %}
+                <!-- content 끝 -->
+                    
+        
+                <!-- quick menu -->
+                <div class="scroll_quick_menu">
+                    <div class="scroll_quick_menu_wrap">
+                        <h3>QUICK<br>MENU</h3>
+                        <ul>
+                            <li>
+                                <a href="/resources/download/극동프레스 브로슈어(P8) .pdf">
+                                    <img src="/resources/images/common/scroll_icon01.png" alt="">
+                                    <p>회사소개서</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:alert('준비중입니다.');">
+                                    <img src="/resources/images/common/scroll_icon02.png" alt="">
+                                    <p>동영상</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/inquiry">
+                                    <img src="/resources/images/common/scroll_icon03.png" alt="">
+                                    <p>문의하기</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/company/map">
+                                    <img src="/resources/images/common/scroll_icon04.png" alt="">
+                                    <p>찾아오시는길</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="sc_top">
+                        <a href="javascript:void(0);"><img src="{% static 'widget_img/sc_top_img.jpg' %}" alt=""></a>
+                    </div>
+                </div>
+
+                <script>
+                    scrollQuickMenu();
+                    scTopBt();
+                </script>
+                <!-- quick menu 끝 -->
+            </div>
+		</div>
+    
+        <!-- 모바일 footer -->
+        <div class="m_footer m_sub_footer">
+            <p>경경기도 화성시 송산면 송산산단길 123</p>
+            <p>㈜극동프레스 Copyright(c) KUKDONG PRESS.All Rights Reserved. </p>
+        </div>
+        <!-- 모바일 footer 끝-->
+    
+        <!-- 모바일 menu -->
+        <div class="m_header">
+            <div class="m_sub_menu">
+                <div class="m_sub_menu_con">
+                    <h2 class="m_logo"><a href="/"><img src="/resources/images/common/logo.png" alt=""></a></h2>
+                    <ul class="m_sub_menu_list">
+                        <li>
+                            <a class="subdetailmenubt" href="javascript:void(0);">회사소개 <span>></span></a>
+                            <ul class="m_subdetailmenu">
+                                <li><a href="/company/company">인사말</a></li>
+                                <li><a href="/company/history">회사연혁</a></li>
+                                <li><a href="/company/work">주요업무</a></li>
+                                <li><a href="/company/organization_chart">조직도</a></li>
+                                <li><a href="/company/location">찾아오시는길</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="subdetailmenubt" href="javascript:void(0);">제품소개<span>></span></a>
+                            <ul class="m_subdetailmenu">
+                                <li><a href="/product/DIE_SPOTTING_PRESS_1">DIE<br>SPOTTING<br>PRESS(무반전)</a></li>
+                                <li><a href="/product/DIE_SPOTTING_PRESS_2">DIE<br>SPOTTING<br>PRESS(180˚반전)</a></li>
+                                <li><a href="/product/TRY_OUT_PRESS">TRY OUT<br>PRESS</a></li>
+                                <li><a href="/product/KGP_PRESS">KGP<br>PRESS</a></li>
+                                <li><a href="/product/AUTOMOBILE_INTERIOR_FORMING">AUTOMOBILE<br>INTERIOR<br>FORMING</a></li>
+                                <li><a href="/product/DEEP_DRAWING_PRESS">DEEP<br>DRAWING<br>PRESS</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="subdetailmenubt" href="javascript:void(0);">제품문의<span>></span></a>
+                            <ul class="m_subdetailmenu">
+                                <li><a href="/inquiry">제품문의</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="subdetailmenubt" href="javascript:void(0);">공지사항<span>></span></a>
+                            <ul class="m_subdetailmenu">
+                                <li><a href="/notice">공지사항 & 뉴스</a></li>
+                            </ul>
+                        </li>
+                        <!-- <li>
+                        <a class="subdetailmenubt" href="#1">설정</a>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="m_sub_menu_bg"></div>
+            </div>
+        </div>
+        <!-- 모바일 menu 끝 -->
+		<!-- 웹 페이지 끝 -->
+	</body>
+</html>

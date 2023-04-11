@@ -9,9 +9,9 @@ WORKDIR /home/django_corp_web
 
 RUN pip install -r requirements.txt
 
-RUN echo "SECRET_KEY=django-insecure-gnx5fz4c#(_c-2u$-5#(f(d9@fu88(aal6ns+v(16_mb^%wbb6" > .env
-
 WORKDIR /home/django_corp_web/corpweb
+
+RUN echo "SECRET_KEY=django-insecure-gnx5fz4c#(_c-2u$-5#(f(d9@fu88(aal6ns+v(16_mb^%wbb6" > .env
 
 RUN python manage.py migrate
 

@@ -17,6 +17,6 @@ RUN echo "SECRET_KEY=django-insecure-gnx5fz4c#(_c-2u$-5#(f(d9@fu88(aal6ns+v(16_m
 
 EXPOSE 8000
 
-CMD ["bash", "-c","python manage.py collectstatic --noinput && python manage.py migrate && gunicorn corpweb.wsgi --bind 0.0.0.0:8000"]
+CMD ["bash", "-c","python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn corpweb.wsgi --bind 0.0.0.0:8000"]
 
 

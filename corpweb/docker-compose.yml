@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    networks:
+      - network
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - static-volume:/data/static
+      - media-volume:/data/media
+
+    ports:
+      - "80:80"
+
+  django_corp_web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: django_corp_web
+    image: django_corp_web
+    networks:
+      - network
+    volumes:
+      - static-volume:/home/django_corp_web/corpweb/staticfiles
+      - media-volume:/home/django_corp_web/corpweb/media
+networks:
+  network:
+    name: network
+volumes:
+  static-volume:
+    name: static-volume
+  media-volume:
+    name: media-volume

@@ -64,7 +64,7 @@ div.m_header div.m_sub_menu div.m_sub_menu_con > ul.m_sub_menu_list > li{border-
 div.m_header div.m_sub_menu div.m_sub_menu_con > ul.m_sub_menu_list > li > a{width:100%; padding:0 20px; height:40px; line-height:40px; color:#c7c7c7; position:relative; font-size:12px;background:#004f9e;}
 div.m_header div.m_sub_menu div.m_sub_menu_con > ul.m_sub_menu_list > li > a.on{color:#fff;}
 div.m_header div.m_sub_menu div.m_sub_menu_con > ul.m_sub_menu_list > li > a:hover{color:#fff;}
-div.m_header div.m_sub_menu div.m_sub_menu_con > ul.m_sub_menu_list > li > a.subdetailmenubt span{display:block; width:12px; height:12px; position:absolute; top:13px; right:20px; background:url('../images/common/m_menu_arrow_icon.png')no-repeat center; overflow:hidden; text-indent:-99px;}
+div.m_header div.m_sub_menu div.m_sub_menu_con > ul.m_sub_menu_list > li > a.subdetailmenubt span{display:block; width:12px; height:12px; position:absolute; top:13px; right:20px; background:url('../widget_img/mobile/m_menu_arrow_icon.png')no-repeat center; overflow:hidden; text-indent:-99px;}
 div.m_header div.m_sub_menu ul.m_sub_menu_list > li > ul.m_subdetailmenu{display:none; background:#fff; padding:15px 0;}
 div.m_header div.m_sub_menu ul.m_sub_menu_list > li > ul.m_subdetailmenu li{padding:0 20px;}
 div.m_header div.m_sub_menu ul.m_sub_menu_list > li > ul.m_subdetailmenu li a{padding:7px 0; color:#010101; font-size:12px;}

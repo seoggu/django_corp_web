@@ -52,6 +52,8 @@ class OrganizationChart(models.Model):
 class Map(models.Model):
     map_image=models.ImageField(upload_to='images/map/')
     
+    map_location=models.CharField(max_length=255, null=True)
+    
     phone_number=models.CharField(max_length=255, null=True)
     
     fax_number=models.CharField(max_length=255, null=True)
@@ -59,14 +61,22 @@ class Map(models.Model):
     created_at = models.DateField(auto_now_add=True, null=True)
     
 class MainInfo(models.Model):
+    name_kr=models.CharField(max_length=255,null=True,blank=True)
+    name_en=models.CharField(max_length=255,null=True,blank=True)
+    name_cn=models.CharField(max_length=255,null=True,blank=True)
     
-    logo=models.ImageField(upload_to='images/main/')
-    phone_number=models.CharField(max_length=50)
-    fax_numver=models.CharField(max_length=50)
-    email=models.EmailField()
-    brochure=models.FileField(upload_to='files/main')
     
-    created_at=models.DateField(auto_now_add=True)
+    logo=models.ImageField(upload_to='images/main/',null=True,blank=True)
+    phone_number=models.CharField(max_length=50,null=True,blank=True)
+    fax_number=models.CharField(max_length=50,null=True,blank=True)
+    email=models.EmailField(null=True,blank=True)
+    brochure=models.FileField(upload_to='files/main',null=True,blank=True)
+    
+    location_kr=models.CharField(max_length=255,null=True,blank=True)
+    location_en=models.CharField(max_length=255,null=True,blank=True)
+    location_cn=models.CharField(max_length=255,null=True,blank=True)
+    
+    created_at=models.DateField(auto_now_add=True,null=True,blank=True)
     
     
 class MainSlide(models.Model):
@@ -85,3 +95,4 @@ class MainSlide(models.Model):
     comment_kr_3=models.CharField(max_length=255, null=True, blank=True)
     comment_cn_3=models.CharField(max_length=255, null=True, blank=True)
     image_3=models.ImageField(upload_to='images/main/', null=True, blank=True)
+    

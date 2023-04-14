@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block menujs %}
 <script>
     //선택된 메뉴
@@ -16,7 +16,7 @@
         <div class="tit_box">
             <h2>
                 <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-                조직도<span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+                조직도<span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
             </h2>
         </div>
         <div class="navbox">
@@ -30,8 +30,8 @@
         </div>
     </div>
     <div class="chart_wrap">
-        <p class="chart_box"><img src="/resources/images/company/organization_chart.jpg" alt="조직도"></p>
-        <p class="m_chart_box"><img src="/resources/images/company/m_organization_chart.jpg" alt="조직도"></p>
+        <p class="chart_box"><img src="{{organizationchart.chart_image.url}}" alt="조직도"></p>
+        <p class="m_chart_box"><img src="{{organizationchart.chart_image_m.url}}" alt="조직도"></p>
     </div>
 
 </div>

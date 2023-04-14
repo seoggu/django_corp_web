@@ -1,5 +1,5 @@
 {% extends 'company_base.html' %}
-
+{% load static %}
 {% block menujs %}
 <script>
 
@@ -15,7 +15,7 @@
 <div class="page_contents_intro work_bg">
     <h1>
         <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-        주요업무 <span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+        주요업무 <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
     </h1>
     <p class="onlyweb">{{mainbusiness.greetings}}</p>
     <p class="onlym work_bg"></p>

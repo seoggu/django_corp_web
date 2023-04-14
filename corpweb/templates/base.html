@@ -27,7 +27,7 @@
             <!-- PC left menu -->
             <div class="left_menu">
                 <div class="left_main_menu">
-                    <h3><a href="/"><img src="/resources/images/common/logo.png" alt="logo"></a></h3>
+                    <h3><a href="/"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt="logo"></a></h3>
                     <ul class="gnb">
                         <li class ="company"><a href="/company/introduction">회사소개</a></li>
                         <li class ="product"><a href="/product/{{product_queryset.first.name}}">제품소개</a></li>
@@ -94,25 +94,25 @@
                         <ul>
                             <li>
                                 <a href="/resources/download/극동프레스 브로슈어(P8) .pdf">
-                                    <img src="/resources/images/common/scroll_icon01.png" alt="">
+                                    <img src="{% static '/widget_img/quick_menu/scroll_icon01.png' %}" alt="">
                                     <p>회사소개서</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="javascript:alert('준비중입니다.');">
-                                    <img src="/resources/images/common/scroll_icon02.png" alt="">
+                                    <img src="{% static '/widget_img/quick_menu/scroll_icon02.png' %}" alt="">
                                     <p>동영상</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="/inquiry">
-                                    <img src="/resources/images/common/scroll_icon03.png" alt="">
+                                    <img src="{% static '/widget_img/quick_menu/scroll_icon03.png' %}" alt="">
                                     <p>문의하기</p>
                                 </a>
                             </li>
                             <li>
                                 <a href="/company/map">
-                                    <img src="/resources/images/common/scroll_icon04.png" alt="">
+                                    <img src="{% static '/widget_img/quick_menu/scroll_icon04.png' %}" alt="">
                                     <p>찾아오시는길</p>
                                 </a>
                             </li>
@@ -142,12 +142,12 @@
         <div class="m_header">
             <div class="m_sub_menu">
                 <div class="m_sub_menu_con">
-                    <h2 class="m_logo"><a href="/"><img src="/resources/images/common/logo.png" alt=""></a></h2>
+                    <h2 class="m_logo"><a href="/"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt=""></a></h2>
                     <ul class="m_sub_menu_list">
                         <li>
                             <a class="subdetailmenubt" href="javascript:void(0);">회사소개 <span>></span></a>
                             <ul class="m_subdetailmenu">
-                                <li><a href="/company/company">인사말</a></li>
+                                <li><a href="/company/introduction">인사말</a></li>
                                 <li><a href="/company/history">회사연혁</a></li>
                                 <li><a href="/company/work">주요업무</a></li>
                                 <li><a href="/company/organization_chart">조직도</a></li>
@@ -156,13 +156,10 @@
                         </li>
                         <li>
                             <a class="subdetailmenubt" href="javascript:void(0);">제품소개<span>></span></a>
-                            <ul class="m_subdetailmenu">
-                                <li><a href="/product/DIE_SPOTTING_PRESS_1">DIE<br>SPOTTING<br>PRESS(무반전)</a></li>
-                                <li><a href="/product/DIE_SPOTTING_PRESS_2">DIE<br>SPOTTING<br>PRESS(180˚반전)</a></li>
-                                <li><a href="/product/TRY_OUT_PRESS">TRY OUT<br>PRESS</a></li>
-                                <li><a href="/product/KGP_PRESS">KGP<br>PRESS</a></li>
-                                <li><a href="/product/AUTOMOBILE_INTERIOR_FORMING">AUTOMOBILE<br>INTERIOR<br>FORMING</a></li>
-                                <li><a href="/product/DEEP_DRAWING_PRESS">DEEP<br>DRAWING<br>PRESS</a></li>
+                            <ul class="m_subdetailmenu">  
+                                {% for product in product_queryset %}
+                                    <li><a href="/product/{{product.name}}">{{product.name}}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
                         <li>
@@ -178,7 +175,7 @@
                             </ul>
                         </li>
                         <!-- <li>
-                        <a class="subdetailmenubt" href="#1">설정</a>
+                            <a class="subdetailmenubt" href="#1">설정</a>
                         </li> -->
                     </ul>
                 </div>

@@ -1,5 +1,5 @@
 {% extends 'company_base.html' %}
-
+{% load static %}
 {% block menujs %}
 <script>
     //선택된 메뉴
@@ -11,13 +11,11 @@
 {% endblock menujs %}
 
 {% block content %}
-<div class="page_wrap page_wrap2">
-
     <!-- content -->
     <div class="page_contents_intro introduce_bg">
         <h1>
             <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-            인사말 <span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+            인사말 <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
         </h1>
         <p class="onlyweb">극동프레스는 <span class="onlyweb"></span>언제나 새로운 변화를 추구하는 <span class="onlyweb"></span>경쟁력을 가진기업으로 거듭나겠습니다</p>
         <p class="onlym intro_bg"><!-- 극동프레스는<br>언제나 새로운 변화를 추구하는<br>경쟁력을 가진기업으로 거듭나겠습니다 --></p>
@@ -38,7 +36,7 @@
             <div class="intro_box intro_box01">
                 <h2>Global Network 글로벌네트워크</h2>
                 <span class="underline">밑줄</span>
-                <p class="intro_box01_bg"><img src="/resources/images/company/intro_img.jpg" alt=""></p>
+                <p class="intro_box01_bg"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt=""></p>
                 <p class="intro_box_txt">극동프레스는세계와<br>당당히 경쟁하는최고의제품을만들겠습니다</p>
             </div>
             <div class="intro_box intro_box02">

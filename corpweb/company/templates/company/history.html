@@ -1,6 +1,5 @@
 {% extends 'company_base.html' %}
-
-
+{% load static %}
 {% block menujs %}
 <script>
 
@@ -13,12 +12,11 @@
 {% endblock menujs %}
     
 
-{% block content %}
-<div class="page_wrap page_wrap2">			
+{% block content %}		
     <div class="page_contents_intro history_bg">
         <h1>
             <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-            회사연혁 <span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+            회사연혁 <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
         </h1>
         <p class="onlym history_bg"></p>
     </div>

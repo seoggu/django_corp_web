@@ -8,4 +8,5 @@ admin.site.register(MainBusiness)
 admin.site.register(OrganizationChart)
 admin.site.register(Map)
 admin.site.register(MainSlide)
+admin.site.register(MainInfo)
 

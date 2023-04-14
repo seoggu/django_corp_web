@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views import generic
 from notice.models import Notice
 from product.models import Product
+from company.models import MainInfo
 
 def home_view(request):
     product_queryset = Product.objects.all()
@@ -17,7 +18,8 @@ class HomeView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         product_queryset = Product.objects.all()
         notice_news = Notice.objects.filter(Q(division='option0') | Q(division='option1'))
+        maininfo = MainInfo.objects.all()
         
-        context = super(HomeView, self).get_context_data(product_queryset=product_queryset, notice_news=notice_news, **kwargs)
+        context = super(HomeView, self).get_context_data(product_queryset=product_queryset, notice_news=notice_news, maininfo=maininfo, **kwargs)
         return context
     

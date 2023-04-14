@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block menujs %}
 <script>
 
@@ -39,13 +39,13 @@
         <div class="tit_box">
             <h2>
                 <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-                공지사항 & 뉴스 <span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+                공지사항 & 뉴스 <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
             </h2>
             <h3 class="mobile_txt">최고의 고품질의 제품으로 보답하겠습니다.</h3>
         </div>
         <div class="navbox">
             <ul>
-                <li><img src="/resources/images/common/page_nav_icon.jpg" alt=""></li>
+                <li><img src="{% static '/widget_img/page_nav_icon.jpg' %}" alt=""></li>
                 <span> > </span>
                 <li>공지사항</li>
                 <span> > </span>

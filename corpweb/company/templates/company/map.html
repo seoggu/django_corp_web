@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block menujs %}
 <script>
 
@@ -17,7 +17,7 @@
         <div class="tit_box">
             <h2>
                 <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-                찾아오시는길<span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+                찾아오시는길<span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
             </h2>
         </div>
         <div class="navbox">
@@ -32,8 +32,7 @@
     </div>
 
     <div class="location_wrap">
-        <div id="map" class="map">
-            <!-- <img src="../images/company/map.jpg" alt="지도"> -->
+        <div id="map" class="map" style=background:url({{map.map_image.url}})no-repeat center; background-size:cover;>
         </div>
 
         <div class="location_info">
@@ -43,15 +42,15 @@
                 <tbody>
                     <tr>
                         <th>주소안내</th>
-                        <td>경기도 화성시 송산면 송산산단길 123</th>
+                        <td>{{map.map_location}}</th>
                     </tr>
                     <tr>
                         <th>전화번호</th>
-                        <td>+82.31.355.8170</td>
+                        <td>{{map.phone_number}}</td>
                     </tr>
                     <tr>
                         <th>팩스번호</th>
-                        <td>+82.31.355.8169</td>
+                        <td>{{map.fax_number}}</td>
                     </tr>
                 </tbody>
             </table>

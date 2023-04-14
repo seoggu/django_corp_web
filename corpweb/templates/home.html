@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta name="format-detection" content="telephone=no">
         <meta name="keywords" content="">
-        <title>기업이름</title>
+        <title>{{maininfo.last.name_kr}}</title>
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/sub.css' %}">
@@ -27,7 +27,7 @@
         <div class="wrap pc_main">
             <div class="left_menu">
                 <div class="left_main_menu">
-                    <h3><a href="/"><img src="/resources/images/common/logo.png" alt="logo"></a></h3>
+                    <h3><a href="/"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt="logo"></a></h3>
                     <ul class="gnb">
                         <li><a href="/company/introduction">회사소개</a></li>
                         <li><a href="/product/{{product_queryset.first.name}}">제품소개</a></li>
@@ -41,10 +41,10 @@
 
                     <div class="footer">
                         <div class="ft_top">
-                            <p>경기도 화성시 송산면<br>송산산단길 123</p>
+                            <p>{{maininfo.last.location_kr}}</p>
                         </div>
                         <div class="ft_bot">
-                            <p>㈜극동프레스<br>Copyright(c)<br>KUKDONG PRESS.<br>All Rights Reserved.</p>
+                            <p>㈜{{maininfo.last.name_kr}}<br>Copyright(c)<br>{{maininfo.last.name_en}}.<br>All Rights Reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -132,18 +132,18 @@
                             </div>
                         </div>
                     </li>
-                    <li class="right_menu04"></li><a href="/corpweb/media/files/notice/extensions.txt" download><img src="/resources/images/main/right_menu04_off.jpg" alt="회사소개서"></a></li>
+                    <li class="right_menu04"></li><a href="{{maininfo.brochure.url}}"><img src="/resources/images/main/right_menu04_off.jpg" alt="회사소개서"></a></li>
                 </ul>
                 <ul class="bot">
                     <li class="right_menu05" style="background-color: rgb(76, 67, 155);"><a href="javascript:alert('준비중입니다.');"><img src="/resources/images/main/right_menu05.jpg" alt="동영상링크"></a></li>
                     <li class="right_menu06">
                         <div class="main_info_box" style="background-color: rgb(208, 224, 118);">
                             <h4><img src="/resources/images/main/info_icon01.png" alt=""></h4>
-                            <p>+82.31.355.8170</p>
+                            <p>{{maininfo.last.phone_number}}</p>
                             <h4><img src="/resources/images/main/info_icon02.png" alt=""></h4>
-                            <p>+82.31.355.8169</p>
+                            <p>{{maininfo.last.fax_number}}</p>
                             <h4><img src="/resources/images/main/info_icon03.png" alt=""></h4>
-                            <p>kdpress2028@hanmail.net</p>
+                            <p>{{maininfo.last.email}}</p>
                         </div>
                     </li>
                 </ul>
@@ -155,19 +155,19 @@
         <div class="wrap mobile_main">
             <div class="m_header">
                 <div class="m_header_top">
-                    <h1 class="m_logobox"><a href="/"><img src="/resources/images/common/m_logo.png" alt=""></a></h1>
+                    <h1 class="m_logobox"><a href="/"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt=""></a></h1>
                     <div class="m_gnb">
-                        <p class="m_gnb_bt"><a href="#1"><img src="/resources/images/common/btn_stm.png" alt=""></a></p>
+                        <p class="m_gnb_bt"><a href="#1"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></a></p>
                     </div>
                 </div>
                 <div class="m_sub_menu">
                     <div class="m_sub_menu_con">
-                        <h2 class="m_logo"><a href="/"><img src="/resources/images/common/logo.png" alt=""></a></h2>
+                        <h2 class="m_logo"><a href="/"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt=""></a></h2>
                         <ul class="m_sub_menu_list">
                             <li>
                                 <a class="subdetailmenubt" href="javascript:void(0);">회사소개 <span>></span></a>
                                 <ul class="m_subdetailmenu">
-                                    <li><a href="/company/company">인사말</a></li>
+                                    <li><a href="/company/introduction">인사말</a></li>
                                     <li><a href="/company/history">회사연혁</a></li>
                                     <li><a href="/company/work">주요업무</a></li>
                                     <li><a href="/company/organization_chart">조직도</a></li>
@@ -176,13 +176,10 @@
                             </li>
                             <li>
                                 <a class="subdetailmenubt" href="javascript:void(0);">제품소개<span>></span></a>
-                                <ul class="m_subdetailmenu">
-                                    <li><a href="/product/DIE_SPOTTING_PRESS_1">DIE<br>SPOTTING<br>PRESS(무반전)</a></li>
-                                    <li><a href="/product/DIE_SPOTTING_PRESS_2">DIE<br>SPOTTING<br>PRESS(180˚반전)</a></li>
-                                    <li><a href="/product/TRY_OUT_PRESS">TRY OUT<br>PRESS</a></li>
-                                    <li><a href="/product/KGP_PRESS">KGP<br>PRESS</a></li>
-                                    <li><a href="/product/AUTOMOBILE_INTERIOR_FORMING">AUTOMOBILE<br>INTERIOR<br>FORMING</a></li>
-                                    <li><a href="/product/DEEP_DRAWING_PRESS">DEEP<br>DRAWING<br>PRESS</a></li>
+                                <ul class="m_subdetailmenu">  
+                                    {% for product in product_queryset %}
+                                        <li><a href="/product/{{product.name}}">{{product.name}}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </li>
                             <li>
@@ -209,7 +206,7 @@
             <div class="m_main_slide">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide m_mainslide01">
-                        <img src="/resources/images/main/m_mainimg03.jpg?20200319" alt="mainimg01">
+                        <img src="{% static '/main_image/press80.jpg' %}" alt="mainimg01">
                     </div>
                     <div class="swiper-slide m_mainslide02">
                         <img src="/resources/images/main/m_mainimg01.jpg?20200319" alt="mainimg02">
@@ -230,7 +227,7 @@
             <!-- 모바일 메인 퀵배너 -->
             <div class="quick_banner_box">
                 <ul>
-                    <li><a href="/product/DIE_SPOTTING_PRESS_1"><img src="/resources/images/main/m_quickmenu01.png" alt=""></a></li>
+                    <li><a href="/product/{{product_queryset.first.name}}"><img src="{% static 'main_image/yuchang_logo.png' %}" alt=""></a></li>
                     <li><a href="/company/company"><img src="/resources/images/main/m_quickmenu02.png" alt=""></a></li>
                     <li><a href="javascript:alert('준비중입니다.');"><img src="/resources/images/main/m_quickmenu03.png" alt=""></a></li>
                 </ul>
@@ -239,14 +236,11 @@
             <!-- 공지사항 & 뉴스 -->
             <div class="m_notice_box">
                 <div class="m_notice">
-                    <h4>KUKDONG <span>NOTICE & NEWS</span></h4>
+                    <h4>YUCHANG <span>NOTICE & NEWS</span></h4>
                     <div class="m_board_slide">
                         <div class="m_board_slide_wrap">
                             <div class="swiper-wrapper">
 
-                                
-                                    
-                                        
                                             <div class="swiper-slide">
                                                 <div class="board_con">
                                                     <a href="/notice">
@@ -277,8 +271,7 @@
                                                 </div>
                                             </div>
                                         
-                                    
-                                    
+           
                                 
                             </div>
                         </div>
@@ -295,27 +288,27 @@
             <div class="service_box">
                 <ul>
                     <li>
-                        <a href="/resources/download/극동프레스 브로슈어(P8) .pdf" download>
-                            <h4><img src="/resources/images/main/info_icon04.png" alt=""></h4>
+                        <a href="{{maininfo.brochure.url}}" download>
+                            <h4><img src="{/resources/images/main/info_icon04.png}" alt=""></h4>
                             <p>회사소개서</p>
                         </a>
                     </li>
                     <li>
-                        <a href="tel:+82.31.355.8170">
+                        <a href="tel:{{maininfo.last.phone_number}}">
                             <h4><img src="/resources/images/main/info_icon01.png" alt=""></h4>
-                            <p>+82.31.355.8170</p>
+                            <p>{{maininfo.last.phone_number}}</p>
                         </a>
                     </li>
                     <li>
-                        <a href="tel:+82.31.355.8169">
+                        <a href="tel:{{maininfo.last.fax_number}}">
                             <h4><img src="/resources/images/main/info_icon02.png" alt=""></h4>
-                            <p>+82.31.355.81691111</p>
+                            <p>{{maininfo.last.fax_number}}</p>
                         </a>
                     </li>
                     <li>
-                        <a href="mailto:kdpress2028@hanmail.net">
+                        <a href="mailto:{{maininfo.last.email}}">
                             <h4><img src="/resources/images/main/info_icon03.png" alt=""></h4>
-                            <p>kdpress2028@hanmail.net</p>
+                            <p>{{maininfo.last.email}}</p>
                         </a>
                     </li>
                 </ul>

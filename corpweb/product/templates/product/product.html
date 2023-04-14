@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block menujs %}
 <script>
     //선택된 메뉴
@@ -15,7 +15,7 @@
         <div class="tit_box">
             <h2 class="tit02">
                 <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-                {{product.name}} <span class="m_gnb_bt"><img src="/resources/images/common/btn_stm.png" alt=""></span>
+                {{product.name}} <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
             </h2>
 
             <!-- 모바일 상단 제품 선택 메뉴 -->

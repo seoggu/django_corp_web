@@ -29,3 +29,5 @@ class InquirySuccessView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         product_queryset = Product.objects.all()
         return super().get_context_data(product_queryset=product_queryset, **kwargs)
+    
+    

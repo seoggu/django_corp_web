@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.http import FileResponse
 from django.shortcuts import render
 from django.views import generic
 from notice.models import Notice
@@ -22,4 +23,12 @@ class HomeView(generic.TemplateView):
         
         context = super(HomeView, self).get_context_data(product_queryset=product_queryset, notice_news=notice_news, maininfo=maininfo, **kwargs)
         return context
+    
+def download_brochure(request):
+    file_obj = MainInfo.objects.latest('created_at')
+    file_path = file_obj.brochure.path
+    file_name= 'YUCHANG.pdf'
+    response = FileResponse(open(file_path, 'rb'))
+    response['Content-Disposition'] = f'attachment; filename={file_name}'
+    return response
     

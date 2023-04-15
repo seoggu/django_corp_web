@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from .views import  home_view, HomeView
+from .views import  download_brochure, home_view, HomeView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,5 +27,6 @@ urlpatterns = [
     path('product/',include('product.urls')),
     path('inquiry/',include('inquiry.urls')),
     path('notice/',include('notice.urls')),
+    path('download_brochure/',download_brochure, name="download_brochure")
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

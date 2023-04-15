@@ -22,7 +22,6 @@
             <div class="pr_tabbox_slide_wrap">
                 <div class="pr_tabbox_slide onlym">
                     <ul class="swiper-wrapper">
-                        
                         {% for item in product_queryset %}
                             {% if item == product %}
                                 <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/{{item.name}}">{{item.name}}</a></li>
@@ -30,7 +29,6 @@
                                 <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/{{item.name}}">{{item.name}}</a></li>
                             {% endif %}
                         {% endfor %}
-
                     </ul>
                 </div>
                 <a class="move_bt move_bt_left"><img src="{% static 'widget_img/mobile/pr_tabbox_left_bt_off.png' %}" alt=""></a>

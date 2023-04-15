@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menujs %}
+<script>
+    //선택된 메뉴
+    $(".company").addClass("on");
+    $("#product_goal").addClass("on");
+
+    sub_webLeftGnb();
+</script>
+{% endblock menujs %}
+
+{% block content %}
+<div class="page_contents">
+    <div class="tit_box_wrap">
+        <div class="tit_box">
+            <h2>
+                <span class="back_bt onlym" onclick="javascript:history.back();"></span>
+                품질 방침 & 목표<span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
+            </h2>
+        </div>
+        <div class="navbox">
+            <ul>
+                <li><img src="{% static '/widget_img/page_nav_icon.jpg' %}" alt=""></li>
+                <span> > </span>
+                <li>설비/제품</li>
+                <span> > </span>
+                <li class="on">품질 방침 & 목표</li>
+            </ul>
+        </div>
+    </div>
+    <div class="chart_wrap">
+        <p class="chart_box"><img src="{{product_goal.goal_image.url}}" alt="품질방침"></p>
+        <p class="m_chart_box"><img src="{{product_goal.goal_image.url}}" alt="품질방침"></p>
+    </div>
+
+</div>
+{% endblock content %}

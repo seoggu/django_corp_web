@@ -22,10 +22,10 @@ div.left_menu div.footer div p{color:#6f6f6f; font-size:14px;}
 
 div.left_sub_menu{position:absolute; left:100px;/*all 180*/ width:150px; height:100%; min-height:942px; background:#0f69c4; top:0; opacity:0; z-index:9;}
 div.left_sub_menu ul{position:absolute; left:0px; padding:5px; width:100%;}
-div.left_sub_menu ul.submenu01{top:155px;}
-div.left_sub_menu ul.submenu02{top:195px;}
-div.left_sub_menu ul.submenu03{top:255px;}
-div.left_sub_menu ul.submenu04{top:305px;}
+div.left_sub_menu ul.submenu01{top:114px;}
+div.left_sub_menu ul.submenu02{top:163px;}
+div.left_sub_menu ul.submenu03{top:213px;}
+div.left_sub_menu ul.submenu04{top:265px;}
 div.left_sub_menu ul li{height:105px;border-top:1px solid #0c549e; text-align:center;}
 /* div.left_sub_menu{display:none;}
 div.left_sub_menu ul{display:none;} */

@@ -40,7 +40,7 @@
                     <h3><a href="/"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt="logo"></a></h3>
                     <ul class="gnb">
                         <li class ="company"><a href="/company/introduction">회사소개</a></li>
-                        <li class ="product"><a href="/product/{{product_queryset.first.name}}">설비소개</a></li>
+                        <li class ="product"><a href="/product/{{product_queryset.first.name}}">설비/제품</a></li>
                         <li class ="inquiry"><a href="/inquiry">거래문의</a></li>
                         <li class ="notice"><a href="/notice">공지사항</a></li>
                     </ul>
@@ -69,7 +69,7 @@
                         <li id="map"><a href="/company/map">찾아오시는길</a></li>
                     </ul>
                     <ul class="submenu02 product">
-                        
+                        <li id="product_goal"><a href="/product/1/product_goal">품질 방침 & 목표</a></li>
                         {% for product in product_queryset %}
                         <li id="{{product.name}}"><a href="/product/{{product.name}}">{{product.name}}</a></li> 
                         {% endfor %}
@@ -165,8 +165,9 @@
                             </ul>
                         </li>
                         <li>
-                            <a class="subdetailmenubt" href="javascript:void(0);">설비소개<span>></span></a>
-                            <ul class="m_subdetailmenu">  
+                            <a class="subdetailmenubt" href="javascript:void(0);">설비/제품<span>></span></a>
+                            <ul class="m_subdetailmenu">
+                                <li><a href="/product/1/product_goal">품질 방침 & 목표</a></li>
                                 {% for product in product_queryset %}
                                     <li><a href="/product/{{product.name}}">{{product.name}}</a></li>
                                 {% endfor %}

@@ -30,8 +30,8 @@
                     <h3><a href="/"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt="logo"></a></h3>
                     <ul class="gnb">
                         <li><a href="/company/introduction">회사소개</a></li>
-                        <li><a href="/product/{{product_queryset.first.name}}">제품소개</a></li>
-                        <li><a href="/inquiry">제품문의</a></li>
+                        <li><a href="/product/{{product_queryset.first.name}}">설비소개</a></li>
+                        <li><a href="/inquiry">거래문의</a></li>
                         <li><a href="/notice">공지사항</a></li>
                     </ul>
                     <ul class="country_bt">
@@ -63,7 +63,7 @@
                         {% endfor %}
                     </ul>
                     <ul class="submenu03">
-                        <li><a href="/inquiry">제품문의</a></li>
+                        <li><a href="/inquiry">거래문의</a></li>
                     </ul>
                     <ul class="submenu04">
                         <li><a href="/notice">공지사항 & 뉴스</a></li>
@@ -75,18 +75,18 @@
                 <div class="main_slide">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide mainslide01">
-                            <h2>ONLY,<br> Excellent Quality Products<br>Are able to satisfy the Customers as<br>well as Ourselves</h2>
-                            <p>극동프레스는 고품질의 제품으로<br>고객만족을 실현하겠습니다.</p>
+                            <h2>Intro Greetings</h2>
+                            <p>내용</p>
                             <!-- <img src="images/main/main_img03.jpg" alt="mainimg01"> -->
                         </div>
                         <div class="swiper-slide mainslide02">
-                            <h2>ONLY,<br> Excellent Quality Products<br>Are able to satisfy the Customers as<br>well as Ourselves</h2>
-                            <p>극동프레스는 고품질의 제품으로<br>고객만족을 실현하겠습니다.</p>
+                            <h2>Intro Greetings</h2>
+                            <p>내용</p>
                             <!-- <img src="images/main/main_img01.jpg" alt="mainimg02"> -->
                         </div>
                         <div class="swiper-slide mainslide03">
-                            <h2>ONLY,<br> Excellent Quality Products<br>Are able to satisfy the Customers as<br>well as Ourselves</h2>
-                            <p>극동프레스는 고품질의 제품으로<br>고객만족을 실현하겠습니다.</p>
+                            <h2>Intro Greetings</h2>
+                            <p>내용</p>
                             <!-- <img src="images/main/main_img02.jpg" alt="mainimg03"> -->
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                     <li class="right_menu02" style="background-color: rgb(44, 29, 39);"><a href="/company/introduction">글로벌네트워크</a></li>
                 </ul>
                 <ul class="mid">
-                    <li class="right_menu03" style="background-color: rgb(171, 153, 189);">
+                    <li class="right_menu03">
                         <div class="board_preview">
                             <h3><span>Notice &</span> News</h3>
                             <div class="board_slide">
@@ -132,17 +132,17 @@
                             </div>
                         </div>
                     </li>
-                    <li class="right_menu04"></li><a href="{{maininfo.brochure.url}}"><img src="/resources/images/main/right_menu04_off.jpg" alt="회사소개서"></a></li>
+                    <li class="right_menu04"><a href="{{maininfo.brochure.url}}"><img src="{% static 'main_image/right_menu04_off.jpg' %}" alt="회사소개서"></a></li>
                 </ul>
                 <ul class="bot">
-                    <li class="right_menu05" style="background-color: rgb(76, 67, 155);"><a href="javascript:alert('준비중입니다.');"><img src="/resources/images/main/right_menu05.jpg" alt="동영상링크"></a></li>
+                    <li class="right_menu05" style="background-color: rgb(76, 67, 155);"><a href="javascript:alert('준비중입니다.');"><img src="{% static 'main_image/right_menu05.jpg' %}" alt="동영상링크"></a></li>
                     <li class="right_menu06">
-                        <div class="main_info_box" style="background-color: rgb(208, 224, 118);">
-                            <h4><img src="/resources/images/main/info_icon01.png" alt=""></h4>
+                        <div class="main_info_box">
+                            <h4><img src="{% static '/widget_img/main_call.png' %}" alt=""></h4>
                             <p>{{maininfo.last.phone_number}}</p>
-                            <h4><img src="/resources/images/main/info_icon02.png" alt=""></h4>
+                            <h4><img src="{% static '/widget_img/main_fax.png' %}" alt=""></h4>
                             <p>{{maininfo.last.fax_number}}</p>
-                            <h4><img src="/resources/images/main/info_icon03.png" alt=""></h4>
+                            <h4><img src="{% static '/widget_img/main_email.png' %}" alt=""></h4>
                             <p>{{maininfo.last.email}}</p>
                         </div>
                     </li>
@@ -169,13 +169,13 @@
                                 <ul class="m_subdetailmenu">
                                     <li><a href="/company/introduction">인사말</a></li>
                                     <li><a href="/company/history">회사연혁</a></li>
-                                    <li><a href="/company/work">주요업무</a></li>
-                                    <li><a href="/company/organization_chart">조직도</a></li>
-                                    <li><a href="/company/location">찾아오시는길</a></li>
+                                    <li><a href="/company/mainbusiness">주요업무</a></li>
+                                    <li><a href="/company/organizationchart">조직도</a></li>
+                                    <li><a href="/company/map">찾아오시는길</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a class="subdetailmenubt" href="javascript:void(0);">제품소개<span>></span></a>
+                                <a class="subdetailmenubt" href="javascript:void(0);">설비소개<span>></span></a>
                                 <ul class="m_subdetailmenu">  
                                     {% for product in product_queryset %}
                                         <li><a href="/product/{{product.name}}">{{product.name}}</a></li>
@@ -183,9 +183,9 @@
                                 </ul>
                             </li>
                             <li>
-                                <a class="subdetailmenubt" href="javascript:void(0);">제품문의<span>></span></a>
+                                <a class="subdetailmenubt" href="javascript:void(0);">거래문의<span>></span></a>
                                 <ul class="m_subdetailmenu">
-                                    <li><a href="/inquiry">제품문의</a></li>
+                                    <li><a href="/inquiry">거래문의</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -209,10 +209,10 @@
                         <img src="{% static '/main_image/press80.jpg' %}" alt="mainimg01">
                     </div>
                     <div class="swiper-slide m_mainslide02">
-                        <img src="/resources/images/main/m_mainimg01.jpg?20200319" alt="mainimg02">
+                        <img src="{% static '/main_image/press150.jpg' %}" alt="mainimg02">
                     </div>
                     <div class="swiper-slide m_mainslide03">
-                        <img src="/resources/images/main/m_mainimg02.jpg?20200319" alt="mainimg03">
+                        <img src="{% static '/main_image/press250.jpg' %}" alt="mainimg03">
                     </div>
                 </div>
                 <!--
@@ -227,9 +227,9 @@
             <!-- 모바일 메인 퀵배너 -->
             <div class="quick_banner_box">
                 <ul>
-                    <li><a href="/product/{{product_queryset.first.name}}"><img src="{% static 'main_image/yuchang_logo.png' %}" alt=""></a></li>
-                    <li><a href="/company/company"><img src="/resources/images/main/m_quickmenu02.png" alt=""></a></li>
-                    <li><a href="javascript:alert('준비중입니다.');"><img src="/resources/images/main/m_quickmenu03.png" alt=""></a></li>
+                    <li><a href="/product/{{product_queryset.first.name}}"><img src="{% static '/main_image/m_quickmenu01.png' %}" alt=""></a></li>
+                    <li><a href="/company/company"><img src="{% static '/main_image/m_quickmenu02.png' %}" alt=""></a></li>
+                    <li><a href="javascript:alert('준비중입니다.');"><img src="{% static '/main_image/m_quickmenu03.png' %}" alt=""></a></li>
                 </ul>
             </div>
             <!-- 모바일 메인 퀵배너 끝-->
@@ -240,39 +240,17 @@
                     <div class="m_board_slide">
                         <div class="m_board_slide_wrap">
                             <div class="swiper-wrapper">
-
-                                            <div class="swiper-slide">
-                                                <div class="board_con">
-                                                    <a href="/notice">
-                                                        <h3></h3>
-                                                        <p></p>
-                                                        <span>2018-09-10</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        
-                                            <div class="swiper-slide">
-                                                <div class="board_con">
-                                                    <a href="/notice">
-                                                        <h3>이미지 첨부 테스트</h3>
-                                                        <p></p>
-                                                        <span>2018-09-10</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        
-                                            <div class="swiper-slide">
-                                                <div class="board_con">
-                                                    <a href="/notice">
-                                                        <h3>극동프레스 홈페이지 오픈</h3>
-                                                        <p>극동프레스 홈페이지 오픈 2018.08.13</p>
-                                                        <span>2018-08-10</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        
-           
-                                
+                                {% for article in notice_news %}
+                                    <div class="swiper-slide">
+                                        <div class="board_con">
+                                            <a href="/notice/detail/{{article.pk}}">
+                                                <h3>{{article.title}}</h3>
+                                                <p>{{article.context}}</p>
+                                                <span>{{article.created_at|date:"Y-m-d"}}</span>
+                                            </a>
+                                        </div>
+                                    </div>    
+                                {% endfor %}       
                             </div>
                         </div>
                         <div class="m_board_slide_bts">
@@ -289,25 +267,25 @@
                 <ul>
                     <li>
                         <a href="{{maininfo.brochure.url}}" download>
-                            <h4><img src="{/resources/images/main/info_icon04.png}" alt=""></h4>
+                            <h4><img src="{% static '/widget_img/main_download.png' %}" alt=""></h4>
                             <p>회사소개서</p>
                         </a>
                     </li>
                     <li>
                         <a href="tel:{{maininfo.last.phone_number}}">
-                            <h4><img src="/resources/images/main/info_icon01.png" alt=""></h4>
+                            <h4><img src="{% static '/widget_img/main_call.png' %}" alt=""></h4>
                             <p>{{maininfo.last.phone_number}}</p>
                         </a>
                     </li>
                     <li>
                         <a href="tel:{{maininfo.last.fax_number}}">
-                            <h4><img src="/resources/images/main/info_icon02.png" alt=""></h4>
+                            <h4><img src="{% static '/widget_img/main_fax.png' %}" alt=""></h4>
                             <p>{{maininfo.last.fax_number}}</p>
                         </a>
                     </li>
                     <li>
                         <a href="mailto:{{maininfo.last.email}}">
-                            <h4><img src="/resources/images/main/info_icon03.png" alt=""></h4>
+                            <h4><img src="{% static '/widget_img/main_email.png' %}" alt=""></h4>
                             <p>{{maininfo.last.email}}</p>
                         </a>
                     </li>
@@ -316,8 +294,8 @@
             <!-- 극동프레스 info 끝 -->
             <!-- 모바일 footer -->
             <div class="m_footer">
-                <p>경기도 화성시 송산면 송산산단길 123</p>
-                <p>㈜극동프레스 Copyright(c) KUKDONG PRESS.All Rights Reserved. </p>
+                <p>{{maininfo.last.location_kr}}</p>
+                <p>㈜{{maininfo.last.name_kr}} Copyright(c) {{maininfo.last.name_en}}.All Rights Reserved. </p>
             </div>
             <!-- 모바일 footer 끝-->
         </div>

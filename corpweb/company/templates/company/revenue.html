@@ -3,8 +3,8 @@
 {% block menujs %}
 <script>
     //선택된 메뉴
-    $(".product").addClass("on");
-    $("#product_goal").addClass("on");
+    $(".company").addClass("on");
+    $("#revenue").addClass("on");
 
     sub_webLeftGnb();
 </script>
@@ -16,23 +16,24 @@
         <div class="tit_box">
             <h2>
                 <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-                품질 방침 & 목표<span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
+                매출 현황<span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
             </h2>
         </div>
         <div class="navbox">
             <ul>
                 <li><img src="{% static '/widget_img/page_nav_icon.jpg' %}" alt=""></li>
                 <span> > </span>
-                <li>설비/제품</li>
+                <li>회사소개</li>
                 <span> > </span>
-                <li class="on">품질 방침 & 목표</li>
+                <li class="on">매출 현황</li>
             </ul>
         </div>
     </div>
     <div class="chart_wrap">
-        <p class="chart_box"><img src="{{product_goal.goal_image.url}}" alt="품질방침"></p>
-        <p class="m_chart_box"><img src="{{product_goal.goal_image.url}}" alt="품질방침"></p>
+        <p class="chart_box"><img src="{{revenue.revenue_image.url}}" alt="조직도"></p>
+        <p class="m_chart_box"><img src="{{revenue.revenue_image.url}}" alt="조직도"></p>
     </div>
 
 </div>
 {% endblock content %}
+    

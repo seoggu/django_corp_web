@@ -9,4 +9,5 @@ admin.site.register(OrganizationChart)
 admin.site.register(Map)
 admin.site.register(MainSlide)
 admin.site.register(MainInfo)
+admin.site.register(Revenue)
 

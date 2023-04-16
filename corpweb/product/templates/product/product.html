@@ -36,7 +36,7 @@
             </div>
             <!-- 모바일 상단 제품 선택 메뉴 끝 -->
 
-            <p class="product_txt">대략적인 설명</p>
+            <p class="product_txt"></p>
         </div>
         
         <div class="navbox">
@@ -55,11 +55,18 @@
         <div class="product_img_box">
             <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
         </div>
-        <div class="pd_info_table_wrap onlyweb">
+        
+        {% if product.is_need_detail %}
+            <div class="pd_info_table_wrap onlyweb">
             <h3><span>라인</span>설비제원</h3>
-                <p><img  src="{{product.product_features_image.url}}" alt=""></p>     
-        </div>
+                <p><img  src="" alt=""></p>
+            </div>
+        {% endif %}
+            
+        
     </div>
+    
+    <!-- {% if product.is_need_detail %}
         <div class="pd_info_table_wrap onlym">
             <div class="m_pd_info_tablebox">
                 <h4>설비 세부 카테고리 <span>arrow</span></h4>
@@ -93,6 +100,9 @@
             </div>
             
         </div>
+    {% endif %} -->
+        
+        
 
 </div>
 {% endblock content %}

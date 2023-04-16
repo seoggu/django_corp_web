@@ -34,10 +34,10 @@
                         <li><a href="/inquiry">거래문의</a></li>
                         <li><a href="/notice">공지사항</a></li>
                     </ul>
-                    <ul class="country_bt">
+                    <!-- <ul class="country_bt">
                         <li><a href="/">KOR</a></li>
                         <li><a href="/cn/home">中文</a></li>
-                    </ul>
+                    </ul> -->
 
                     <div class="footer">
                         <div class="ft_top">
@@ -54,6 +54,7 @@
                         <li><a href="/company/introduction">인사말</a></li>
                         <li><a href="/company/history">회사연혁</a></li>
                         <li><a href="/company/mainbusiness">주요업무</a></li>
+                        <li><a href="/company/revenue">매출 현황</a></li>
                         <li><a href="/company/organizationchart">조직도</a></li>
                         <li><a href="/company/map">찾아오시는길</a></li>
                     </ul>
@@ -62,6 +63,7 @@
                         {% for product in product_queryset %}
                         <li id="{{product.name}}"><a href="/product/{{product.name}}">{{product.name}}</a></li> 
                         {% endfor %}
+                        <li id="parts"><a href="/product/1/parts">주요 제품</a></li>
                     </ul>
                     <ul class="submenu03">
                         <li><a href="/inquiry">거래문의</a></li>
@@ -136,7 +138,7 @@
                     <li class="right_menu04"><a href="{% url 'download_brochure' %}"><img src="{% static 'main_image/right_menu04_off.jpg' %}" alt="회사소개서"></a></li>
                 </ul>
                 <ul class="bot">
-                    <li class="right_menu05" style="background-color: rgb(76, 67, 155);"><a href="javascript:alert('준비중입니다.');"><img src="{% static 'main_image/right_menu05.jpg' %}" alt="동영상링크"></a></li>
+                    <li class="right_menu05" style="background-color: rgb(76, 67, 155);"><a href="/product/{{product_queryset.first.name}}"></a></li>
                     <li class="right_menu06">
                         <div class="main_info_box">
                             <h4><img src="{% static '/widget_img/main_call.png' %}" alt=""></h4>
@@ -171,6 +173,7 @@
                                     <li><a href="/company/introduction">인사말</a></li>
                                     <li><a href="/company/history">회사연혁</a></li>
                                     <li><a href="/company/mainbusiness">주요업무</a></li>
+                                    <li><a href="/company/revenue">매출 현황</a></li>
                                     <li><a href="/company/organizationchart">조직도</a></li>
                                     <li><a href="/company/map">찾아오시는길</a></li>
                                 </ul>
@@ -182,6 +185,7 @@
                                     {% for product in product_queryset %}
                                         <li><a href="/product/{{product.name}}">{{product.name}}</a></li>
                                     {% endfor %}
+                                    <li><a href="/product/1/parts">주요 제품</a></li>
                                 </ul>
                             </li>
                             <li>

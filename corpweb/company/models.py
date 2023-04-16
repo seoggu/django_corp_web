@@ -37,7 +37,8 @@ class MainBusiness(models.Model):
     title=models.CharField(max_length=255, default='제목')
     business_list=models.TextField(default=' 쉼표 로 각 업무 구분,쉼표 로 각 업무 구분,쉼표 로 각 업무 구분')
     
-    share_image=models.ImageField(upload_to='images/mainbusiness/')
+    work1_image=models.ImageField(upload_to='images/mainbusiness/',null=True, blank=True)
+    work2_image=models.ImageField(upload_to='images/mainbusiness/')
     
     created_at = models.DateField(auto_now_add=True, null=True)
     
@@ -95,4 +96,10 @@ class MainSlide(models.Model):
     comment_kr_3=models.CharField(max_length=255, null=True, blank=True)
     comment_cn_3=models.CharField(max_length=255, null=True, blank=True)
     image_3=models.ImageField(upload_to='images/main/', null=True, blank=True)
+    
+class Revenue(models.Model):
+    
+    revenue_image=models.ImageField(upload_to='images/main/')
+    
+    created_at=models.DateField(auto_now_add=True)
     

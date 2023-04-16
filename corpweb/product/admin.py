@@ -4,3 +4,4 @@ from .models import *
 
 admin.site.register(Product)
 admin.site.register(ProductGoal)
+admin.site.register(Parts)

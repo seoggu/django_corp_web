@@ -1,6 +1,7 @@
+from django.http import FileResponse
 from django.shortcuts import render
 from django.views import generic
-from .models import Product, ProductGoal
+from .models import Parts, Product, ProductGoal
 
 # Create your views here.
 
@@ -27,3 +28,24 @@ class ProductGoalView(generic.DetailView):
     def get_context_data(self, **kwargs):
         product_queryset = Product.objects.all()
         return super().get_context_data(product_queryset=product_queryset, **kwargs)
+    
+
+class PartsView(generic.DetailView):
+    model=Parts
+    context_object_name='parts'
+    template_name='product/parts.html'
+    
+    def get_object(self, queryset=None):
+        return Parts.objects.latest('created_at')
+    
+    def get_context_data(self, **kwargs):
+        product_queryset = Product.objects.all()
+        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+    
+def download_sample(request):
+    file_obj = Parts.objects.latest('created_at')
+    file_path = file_obj.sample.path
+    file_name= 'parts_sample.zip'
+    response = FileResponse(open(file_path, 'rb'))
+    response['Content-Disposition'] = f'attachment; filename={file_name}'
+    return response

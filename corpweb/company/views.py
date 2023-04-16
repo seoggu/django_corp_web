@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 
 from product.models import Product
-from .models import Introduction,History, MainBusiness, Map, OrganizationChart
+from .models import Introduction,History, MainBusiness, Map, OrganizationChart, Revenue
 
 # Create your views here.
 class IntroductionView(generic.DetailView):
@@ -30,7 +30,7 @@ class HistoryView(generic.DetailView):
         product_queryset = Product.objects.all()
         return super().get_context_data(product_queryset=product_queryset, **kwargs)
     
-class MainBusinessView(generic.DeleteView):
+class MainBusinessView(generic.DetailView):
     model=MainBusiness
     context_object_name='mainbusiness'
     template_name='company/mainbusiness.html'
@@ -44,7 +44,7 @@ class MainBusinessView(generic.DeleteView):
         product_queryset = Product.objects.all()
         return super().get_context_data(product_queryset=product_queryset, business_list=business_list,  **kwargs)
     
-class OrganizationChartView(generic.DeleteView):
+class OrganizationChartView(generic.DetailView):
     model=OrganizationChart
     context_object_name='organizationchart'
     template_name='company/organizationchart.html'
@@ -56,7 +56,7 @@ class OrganizationChartView(generic.DeleteView):
         product_queryset = Product.objects.all()
         return super().get_context_data(product_queryset=product_queryset, **kwargs)
     
-class MapView(generic.DeleteView):
+class MapView(generic.DetailView):
     model=Map
     context_object_name='map'
     template_name='company/map.html'
@@ -65,5 +65,18 @@ class MapView(generic.DeleteView):
         return Map.objects.latest('created_at')
     
     def get_context_data(self, **kwargs): 
+        product_queryset = Product.objects.all()
+        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+    
+    
+class RevenueView(generic.DetailView):
+    model=Revenue
+    context_object_name='revenue'
+    template_name='company/revenue.html'
+    
+    def get_object(self, queryset=None):
+        return Revenue.objects.latest('created_at')
+    
+    def get_context_data(self, **kwargs):
         product_queryset = Product.objects.all()
         return super().get_context_data(product_queryset=product_queryset, **kwargs)

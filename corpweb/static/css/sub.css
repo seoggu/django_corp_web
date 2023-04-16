@@ -170,7 +170,7 @@ div.subpage_view_wrap div.intro_box02 ul.info_listbox li img{ display:block; wid
 div.subpage_view_wrap div.intro_box02 ul.info_listbox li p{font-size:15px; color:#10467d; margin-top:20px;}
 div.subpage_view_wrap div.intro_box02 ul.info_listbox li p span{font-weight:bold;}
 
-@media screen and (max-width:1400px){
+@media screen and (max-width:4444px){
 	div.page_wrap2 div.page_contents_intro h1{font-size:30px;}
 	div.page_wrap2 div.page_contents_intro p span.onlyweb{display:none;}
 	div.page_wrap2 div.page_contents{padding:100px 60px 100px 0;}
@@ -348,7 +348,7 @@ div.product_wrap p.explanation{font-size:16px; color:#4a4a4a; line-height:22px;}
 div.product_img_box{width:100%; margin:70px auto; text-align:center;}
 div.product_img_box p{display:inline-block;}
 
-@media screen and (max-width:1560px){
+@media screen and (max-width:4444px){
 	div.product_img_box{width:100%; margin:70px auto; text-align:center;}
 	div.product_img_box p{display:inline-block; width:80%; margin:0 auto;}
 	div.product_img_box p img{width:100%;}

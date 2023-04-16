@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block menujs %}
+<script>
+    //선택된 메뉴
+    $(".product").addClass("on");
+    $("#parts").addClass("on");
+
+    sub_webLeftGnb();
+</script>
+{% endblock menujs %}
+
+{% block content %}
+<div class="page_contents">
+    <div class="tit_box_wrap">
+        <div class="tit_box">
+            <h2>
+                <span class="back_bt onlym" onclick="javascript:history.back();"></span>
+                주요 제품<span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
+            </h2>
+        </div>
+        <div class="navbox">
+            <ul>
+                <li><img src="{% static '/widget_img/page_nav_icon.jpg' %}" alt=""></li>
+                <span> > </span>
+                <li>회사소개</li>
+                <span> > </span>
+                <li class="on">주요 제품</li>
+            </ul>
+        </div>
+    </div>
+    <div style="margin-top: 10px;">
+        <a style="background-color: #0f69c4;
+        color: white;
+        font-size:14px;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        width:10rem;
+        text-align:center;" 
+        href="{% url 'product:download_sample' %}">제품 샘플 다운로드</a>
+    </div>
+    
+    <div class="chart_wrap">
+        <p class="chart_box"><img src="{{parts.parts_intro.url}}" alt="제품 현황"></p>
+        <p class="m_chart_box"><img src="{{parts.parts_intro.url}}" alt="제품 현황"></p>
+    </div>
+
+</div>
+{% endblock content %}

@@ -1,7 +1,7 @@
 from django.http import FileResponse
 from django.shortcuts import render
 from django.views import generic
-from .models import Parts, Product, ProductGoal
+from .models import FacilityList, Parts, Press, Product, ProductGoal
 
 # Create your views here.
 
@@ -49,3 +49,27 @@ def download_sample(request):
     response = FileResponse(open(file_path, 'rb'))
     response['Content-Disposition'] = f'attachment; filename={file_name}'
     return response
+
+class FacilityListView(generic.DetailView):
+    model=FacilityList
+    context_object_name='facility_list'
+    template_name='product/facility_list.html'
+    
+    def get_object(self, queryset=None):
+        return FacilityList.objects.latest('created_at')
+    
+    def get_context_data(self, **kwargs):
+        product_queryset = Product.objects.all()
+        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+    
+class PressView(generic.DetailView):
+    model=Press
+    context_object_name='press_list'
+    template_name='product/press.html'
+    
+    def get_object(self, queryset=None):
+        return Press.objects.all()
+    
+    def get_context_data(self, **kwargs):
+        product_queryset = Product.objects.all()
+        return super().get_context_data(product_queryset=product_queryset, **kwargs)

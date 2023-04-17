@@ -17,8 +17,8 @@
             <span class="back_bt onlym" onclick="javascript:history.back();"></span>
             인사말 <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
         </h1>
-        <p class="onlyweb">세부 <span class="onlyweb"></span>회사 <span class="onlyweb"></span>소개</p>
-        <p class="onlym intro_bg"></p>
+        <p class="onlyweb"><span class="onlyweb"></span> <span class="onlyweb"></span></p>
+        <!-- <p class="onlym intro_bg"></p> -->
     </div>
     <div class="page_contents">
         <div class="tit_box_wrap">
@@ -34,33 +34,30 @@
         </div>
         <div class="subpage_view_wrap">
             <div class="intro_box intro_box01">
-                <h2>제목</h2>
+                <h2>{{introduction.intro_title}}</h2>
                 <span class="underline">밑줄</span>
-                <p class="intro_box01_bg"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt=""></p>
-                <p class="intro_box_txt">회사<br>소개</p>
+                <p class="intro_box01_bg"><img src="{{introduction.intro_image.url}}" alt=""></p>
+                <p class="intro_box_txt" style="text-align: left;">{{introduction.intro_context}}
+                    </p>
             </div>
             <div class="intro_box intro_box02">
                 <h2>사훈</h2>
                 <span class="underline">밑줄</span>
                 <ul class="info_listbox">
                     <li>
-                        <img src="" alt="">
-                        <p>1<br><span>1 context</span></p>
+                        <img src="{% static '/widget_img/challenge.png' %}" alt="">
+                        <p>挑戰<br><span>도전</span></p>
                     </li>
                     <li>
-                        <img src="" alt="">
-                        <p>2<br><span>2 context</span></p>
+                        <img src="{% static '/widget_img/creative.png' %}" alt="">
+                        <p>創造<br><span>창조</span></p>
                     </li>
                     <li>
-                        <img src="" alt="">
-                        <p>3<br><span>3 context</span></p>
-                    </li>
-                    <li>
-                        <img src="" alt="">
-                        <p>4<br><span>4 context</span></p>
+                        <img src="{% static '/widget_img/trust.png' %}" alt="">
+                        <p>信賴<br><span>신뢰</span></p>
                     </li>
                 </ul>
-                <p class="intro_box_txt">footer<br>footer</p>
+                <!-- <p class="intro_box_txt">footer<br>footer</p> -->
             </div>
         </div>
     </div>

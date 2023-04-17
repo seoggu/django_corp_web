@@ -10,7 +10,7 @@
 <script>
     //선택된 메뉴
     $(".product").addClass("on");
-    $("#{{product.name}}").addClass("on");
+    $("#press").addClass("on");
     sub_webLeftGnb();
 
     
@@ -24,7 +24,7 @@
         <div class="tit_box">
             <h2 class="tit02">
                 <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-                {{product.name}} <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
+                PRESS <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
             </h2>
 
             <!-- 모바일 상단 제품 선택 메뉴 -->
@@ -48,6 +48,7 @@
                         {% else %}
                             <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/press">PRESS</a></li>
                         {% endif %}
+                            
                         {% for item in product_queryset %}
                             {% if item == product %}
                                 <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/{{item.name}}">{{item.name}}</a></li>
@@ -76,86 +77,37 @@
                 <span> > </span>
                 <li>설비소개</li>
                 <span> > </span>
-                <li class="on">{{product.name}}</li>
+                <li class="on">PRESS</li>
             </ul>
         </div>
     </div>
 
     <div class="product_wrap" id="collapse_wrap">
-            <p style="text-align: center;"> 
-                <button style="margin-right: 30px;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" data-parent="#collapse_wrap">
-                    press1
+            <p style="text-align: center;">
+                {% for press in press_list %}
+                <button style="margin-right: 10px; margin-bottom:10px; width:10rem;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#{{press.name}}" aria-expanded="false" aria-controls="{{press.name}}" data-parent="#collapse_wrap">
+                    {{press.name}}
                 </button>
-                <button style="margin-right: 30px;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" data-parent="#collapse_wrap">
-                    press2
-                </button>
-                <button style="margin-right: 30px;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample2" data-parent="#collapse_wrap">
-                    press2
-                </button>
-                <button style="margin-right: 30px;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample2" data-parent="#collapse_wrap">
-                    press2
-                </button>
+                {% endfor %}
             </p>
-            <div class="collapse" id="collapseExample" data-parent="#collapse_wrap">
+            
+            {% for press in press_list %}
+            <div class="collapse" id="{{press.name}}" data-parent="#collapse_wrap">
                 <div>
-                    <p class="explanation" >{{product.description}}1111111111111111</p>
+                    <p class="explanation" >{{press.context}}</p>
                 <div class="product_img_box" style="width: 50%; height:50%">
-                    <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
+                    <p class="product_img"><img src="{{press.image.url}}" alt=""></p>
                 </div>
+                <div class="pd_info_table_wrap onlyweb">
+                    <h3><span>라인</span>설비제원</h3>
+                    <p><img  src="" alt=""></p>
+                </div>
+                </div>
+            </div>  
+            {% endfor %}
                 
-                {% if product.is_need_detail %}
-                    <div class="pd_info_table_wrap onlyweb">
-                        <h3><span>라인</span>설비제원</h3>
-                        <p><img  src="" alt=""></p>
-                    </div>
-                {% endif %}
-                </div>
-            </div>
-            <div class="collapse" id="collapseExample2" data-parent="#collapse_wrap">
-                <div>
-                    <p class="explanation">{{product.description}}222222222222222</p>
-                <div class="product_img_box">
-                    <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
-                </div>
-                
-                {% if product.is_need_detail %}
-                    <div class="pd_info_table_wrap onlyweb">
-                        <h3><span>라인</span>설비제원</h3>
-                        <p><img  src="" alt=""></p>
-                    </div>
-                {% endif %}
-                </div>
-            </div>
-            <div class="collapse" id="collapseExample3" data-parent="#collapse_wrap">
-                <div>
-                    <p class="explanation">{{product.description}}333333333333333333</p>
-                <div class="product_img_box">
-                    <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
-                </div>
-                
-                {% if product.is_need_detail %}
-                    <div class="pd_info_table_wrap onlyweb">
-                        <h3><span>라인</span>설비제원</h3>
-                        <p><img  src="" alt=""></p>
-                    </div>
-                {% endif %}
-                </div>
-            </div>
-            <div class="collapse" id="collapseExample4" data-parent="#collapse_wrap">
-                <div>
-                    <p class="explanation">{{product.description}}4444444444444444444444</p>
-                <div class="product_img_box">
-                    <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
-                </div>
-                
-                {% if product.is_need_detail %}
-                    <div class="pd_info_table_wrap onlyweb">
-                        <h3><span>라인</span>설비제원</h3>
-                        <p><img  src="" alt=""></p>
-                    </div>
-                {% endif %}
-                </div>
-            </div>         
+
+            
         
     </div>
 

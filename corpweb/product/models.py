@@ -25,3 +25,18 @@ class Parts(models.Model):
     
     created_at=models.DateField(auto_now=True)
     
+class FacilityList(models.Model):
+    image=models.ImageField(upload_to='images/facility_list')
+    
+    created_at=models.DateField(auto_now_add=True)
+    
+class Press(models.Model):
+    image=models.ImageField(upload_to='images/product/press')
+    context=models.TextField()
+    name=models.CharField(max_length=255,null=True)
+    
+    created_at=models.DateField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
+    

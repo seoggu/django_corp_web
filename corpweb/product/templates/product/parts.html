@@ -18,6 +18,44 @@
                 <span class="back_bt onlym" onclick="javascript:history.back();"></span>
                 주요 제품<span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
             </h2>
+            <div class="pr_tabbox_slide_wrap">
+                <div class="pr_tabbox_slide onlym">
+                    <ul class="swiper-wrapper">
+                        {% if product_goal %}
+                            <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/product_goal/">품질 방침 & 목표</a></li>
+                        {% else %}
+                            <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/product_goal/">품질 방침 & 목표</a></li>
+                        {% endif %}
+
+                        {% if facility_list %}
+                            <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/facility_list/">설비 현황</a></li>
+                        {% else %}
+                            <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/facility_list/">설비 현황</a></li>
+                        {% endif %}
+
+                        {% if press_list %}
+                            <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/press">PRESS</a></li>
+                        {% else %}
+                            <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/press">PRESS</a></li>
+                        {% endif %}
+                            
+                        {% for item in product_queryset %}
+                            {% if item == product %}
+                                <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/{{item.name}}">{{item.name}}</a></li>
+                            {% else %}
+                                <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/{{item.name}}">{{item.name}}</a></li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if parts %}
+                            <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/parts">주요 제품</a></li>
+                        {% else %}
+                            <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/parts">주요 제품</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <a class="move_bt move_bt_left"><img src="{% static 'widget_img/mobile/pr_tabbox_left_bt_off.png' %}" alt=""></a>
+                <a class="move_bt move_bt_right"><img src="{% static 'widget_img/mobile/pr_tabbox_right_bt_off.png' %}" alt=""></a>
+            </div>
         </div>
         <div class="navbox">
             <ul>

@@ -8,6 +8,9 @@
 		<meta name="keywords" content="">
 		<title>유창정밀금속</title>
 
+
+        {% block extrahead %}   
+        {% endblock extrahead %}
     
         <link rel="stylesheet" type="text/css" href="{% static 'css/common.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/sub.css' %}">
@@ -18,7 +21,8 @@
         <script type="text/javascript" src="{% static 'js/common.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/sub.js' %}"></script>
         <script type="text/javascript" src="{% static 'js/swiper.js' %}"></script>
-    
+
+        
 
 	</head>
 	<body>
@@ -61,6 +65,8 @@
                     </ul>
                     <ul class="submenu02 product">
                         <li id="product_goal"><a href="/product/1/product_goal">품질 방침 & 목표</a></li>
+                        <li id="facility_list"><a href="/product/1/facility_list">설비 현황</a></li>
+                        <li id="press"><a href="/product/1/press">PRESS</a></li>
                         {% for product in product_queryset %}
                         <li id="{{product.name}}"><a href="/product/{{product.name}}">{{product.name}}</a></li> 
                         {% endfor %}
@@ -101,9 +107,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="javascript:alert('준비중입니다.');">
+                                <a href="/product/1/parts/">
                                     <img src="{% static '/widget_img/quick_menu/scroll_icon02.png' %}" alt="">
-                                    <p>동영상</p>
+                                    <p>제품소개</p>
                                 </a>
                             </li>
                             <li>
@@ -161,6 +167,8 @@
                             <a class="subdetailmenubt" href="javascript:void(0);">설비/제품<span>></span></a>
                             <ul class="m_subdetailmenu">
                                 <li><a href="/product/1/product_goal">품질 방침 & 목표</a></li>
+                                <li><a href="/product/1/facility_list">설비 현황</a></li>
+                                <li><a href="/product/1/press">PRESS</a></li>
                                 {% for product in product_queryset %}
                                     <li><a href="/product/{{product.name}}">{{product.name}}</a></li>
                                 {% endfor %}

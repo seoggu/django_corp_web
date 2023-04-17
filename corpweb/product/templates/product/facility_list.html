@@ -4,7 +4,7 @@
 <script>
     //선택된 메뉴
     $(".product").addClass("on");
-    $("#product_goal").addClass("on");
+    $("#facility_list").addClass("on");
 
     sub_webLeftGnb();
 </script>
@@ -16,7 +16,7 @@
         <div class="tit_box">
             <h2>
                 <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-                품질 방침 & 목표<span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
+                설비 현황<span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
             </h2>
             <div class="pr_tabbox_slide_wrap">
                 <div class="pr_tabbox_slide onlym">
@@ -56,19 +56,20 @@
                 <a class="move_bt move_bt_left"><img src="{% static 'widget_img/mobile/pr_tabbox_left_bt_off.png' %}" alt=""></a>
                 <a class="move_bt move_bt_right"><img src="{% static 'widget_img/mobile/pr_tabbox_right_bt_off.png' %}" alt=""></a>
             </div>
+        </div>
         <div class="navbox">
             <ul>
                 <li><img src="{% static '/widget_img/page_nav_icon.jpg' %}" alt=""></li>
                 <span> > </span>
                 <li>설비/제품</li>
                 <span> > </span>
-                <li class="on">품질 방침 & 목표</li>
+                <li class="on">설비 현황</li>
             </ul>
         </div>
     </div>
     <div class="chart_wrap">
-        <p class="chart_box"><img src="{{product_goal.goal_image.url}}" alt="품질방침"></p>
-        <p class="m_chart_box"><img src="{{product_goal.goal_image.url}}" alt="품질방침"></p>
+        <p class="chart_box"><img src="{{facility_list.image.url}}" alt="설비현황"></p>
+        <p class="m_chart_box"><img src="{{facility_list.image.url}}" alt="설비현황"></p>
     </div>
 
 </div>

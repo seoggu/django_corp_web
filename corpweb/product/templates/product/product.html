@@ -19,197 +19,85 @@
 {% endblock menujs %}
 
 {% block content %}
-<div class="page_contents">
-    <div class="tit_box_wrap">
-        <div class="tit_box">
-            <h2 class="tit02">
-                <span class="back_bt onlym" onclick="javascript:history.back();"></span>
-                {{product.name}} <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
-            </h2>
+    <div class="page_contents">
+        <div class="tit_box_wrap">
+            <div class="tit_box">
+                <h2 class="tit02">
+                    <span class="back_bt onlym" onclick="javascript:history.back();"></span>
+                    {{product.name}} <span class="m_gnb_bt"><img src="{% static '/widget_img/mobile/btn_stm.png' %}" alt=""></span>
+                </h2>
 
-            <!-- 모바일 상단 제품 선택 메뉴 -->
-            <div class="pr_tabbox_slide_wrap">
-                <div class="pr_tabbox_slide onlym">
-                    <ul class="swiper-wrapper">
-                        {% if product_goal %}
-                            <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/product_goal/">품질 방침 & 목표</a></li>
-                        {% else %}
-                            <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/product_goal/">품질 방침 & 목표</a></li>
-                        {% endif %}
-
-                        {% if facility_list %}
-                            <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/facility_list/">설비 현황</a></li>
-                        {% else %}
-                            <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/facility_list/">설비 현황</a></li>
-                        {% endif %}
-
-                        {% if press_list %}
-                            <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/press">PRESS</a></li>
-                        {% else %}
-                            <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/press">PRESS</a></li>
-                        {% endif %}
-                        {% for item in product_queryset %}
-                            {% if item == product %}
-                                <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/{{item.name}}">{{item.name}}</a></li>
+                <!-- 모바일 상단 제품 선택 메뉴 -->
+                <div class="pr_tabbox_slide_wrap">
+                    <div class="pr_tabbox_slide onlym">
+                        <ul class="swiper-wrapper">
+                            {% if product_goal %}
+                                <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/product_goal/">품질 방침 & 목표</a></li>
                             {% else %}
-                                <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/{{item.name}}">{{item.name}}</a></li>
+                                <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/product_goal/">품질 방침 & 목표</a></li>
                             {% endif %}
-                        {% endfor %}
-                        {% if parts %}
-                            <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/parts">주요 제품</a></li>
-                        {% else %}
-                            <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/parts">주요 제품</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-                <a class="move_bt move_bt_left"><img src="{% static 'widget_img/mobile/pr_tabbox_left_bt_off.png' %}" alt=""></a>
-                <a class="move_bt move_bt_right"><img src="{% static 'widget_img/mobile/pr_tabbox_right_bt_off.png' %}" alt=""></a>
-            </div>
-            <!-- 모바일 상단 제품 선택 메뉴 끝 -->
 
-            <p class="product_txt"></p>
-        </div>
-        
-        <div class="navbox">
-            <ul>
-                <li><img src="{% static '/widget_img/page_nav_icon.jpg' %}" alt=""></li>
-                <span> > </span>
-                <li>설비소개</li>
-                <span> > </span>
-                <li class="on">{{product.name}}</li>
-            </ul>
-        </div>
-    </div>
+                            {% if facility_list %}
+                                <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/facility_list/">설비 현황</a></li>
+                            {% else %}
+                                <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/facility_list/">설비 현황</a></li>
+                            {% endif %}
 
-    <div class="product_wrap" id="collapse_wrap">
-            <p style="text-align: center;"> 
-                <button style="margin-right: 30px;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" data-parent="#collapse_wrap">
-                    press1
-                </button>
-                <button style="margin-right: 30px;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2" data-parent="#collapse_wrap">
-                    press2
-                </button>
-                <button style="margin-right: 30px;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample2" data-parent="#collapse_wrap">
-                    press2
-                </button>
-                <button style="margin-right: 30px;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample4" aria-expanded="false" aria-controls="collapseExample2" data-parent="#collapse_wrap">
-                    press2
-                </button>
-            </p>
-            <div class="collapse" id="collapseExample" data-parent="#collapse_wrap">
-                <div>
-                    <p class="explanation" >{{product.description}}1111111111111111</p>
-                <div class="product_img_box" style="width: 50%; height:50%">
-                    <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
-                </div>
-                
-                {% if product.is_need_detail %}
-                    <div class="pd_info_table_wrap onlyweb">
-                        <h3><span>라인</span>설비제원</h3>
-                        <p><img  src="" alt=""></p>
+                            {% if press_list %}
+                                <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/press">PRESS</a></li>
+                            {% else %}
+                                <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/press">PRESS</a></li>
+                            {% endif %}
+                            {% for item in product_queryset %}
+                                {% if item == product %}
+                                    <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/{{item.name}}">{{item.name}}</a></li>
+                                {% else %}
+                                    <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/{{item.name}}">{{item.name}}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if parts %}
+                                <li class="swiper-slide pr_tabbox_list_bt on"><a href="/product/1/parts">주요 제품</a></li>
+                            {% else %}
+                                <li class="swiper-slide pr_tabbox_list_bt"><a href="/product/1/parts">주요 제품</a></li>
+                            {% endif %}
+                        </ul>
                     </div>
-                {% endif %}
+                    <a class="move_bt move_bt_left"><img src="{% static 'widget_img/mobile/pr_tabbox_left_bt_off.png' %}" alt=""></a>
+                    <a class="move_bt move_bt_right"><img src="{% static 'widget_img/mobile/pr_tabbox_right_bt_off.png' %}" alt=""></a>
                 </div>
+                <!-- 모바일 상단 제품 선택 메뉴 끝 -->
+
+                <p class="product_txt"></p>
             </div>
-            <div class="collapse" id="collapseExample2" data-parent="#collapse_wrap">
-                <div>
-                    <p class="explanation">{{product.description}}222222222222222</p>
-                <div class="product_img_box">
-                    <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
-                </div>
-                
-                {% if product.is_need_detail %}
-                    <div class="pd_info_table_wrap onlyweb">
-                        <h3><span>라인</span>설비제원</h3>
-                        <p><img  src="" alt=""></p>
-                    </div>
-                {% endif %}
-                </div>
+            
+            <div class="navbox">
+                <ul>
+                    <li><img src="{% static '/widget_img/page_nav_icon.jpg' %}" alt=""></li>
+                    <span> > </span>
+                    <li>설비소개</li>
+                    <span> > </span>
+                    <li class="on">{{product.name}}</li>
+                </ul>
             </div>
-            <div class="collapse" id="collapseExample3" data-parent="#collapse_wrap">
-                <div>
-                    <p class="explanation">{{product.description}}333333333333333333</p>
-                <div class="product_img_box">
-                    <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
-                </div>
-                
-                {% if product.is_need_detail %}
-                    <div class="pd_info_table_wrap onlyweb">
-                        <h3><span>라인</span>설비제원</h3>
-                        <p><img  src="" alt=""></p>
-                    </div>
-                {% endif %}
-                </div>
+        </div>
+
+        <div class="product_wrap">
+            <div>
+                <p class="explanation">{{product.description}}4444444444444444444444</p>
+            <div class="product_img_box">
+                <p class="product_img" style="height: 50%; width: 50%;"><img src="{{product.product_image.url}}" alt=""></p>
             </div>
-            <div class="collapse" id="collapseExample4" data-parent="#collapse_wrap">
-                <div>
-                    <p class="explanation">{{product.description}}4444444444444444444444</p>
-                <div class="product_img_box">
-                    <p class="product_img"><img src="{{product.product_image.url}}" alt=""></p>
+            {% if False %}
+                <div class="pd_info_table_wrap onlyweb">
+                    <h3><span>라인</span>설비제원</h3>
+                    <p><img  src="" alt=""></p>
                 </div>
-                
-                {% if product.is_need_detail %}
-                    <div class="pd_info_table_wrap onlyweb">
-                        <h3><span>라인</span>설비제원</h3>
-                        <p><img  src="" alt=""></p>
-                    </div>
-                {% endif %}
-                </div>
-            </div>         
+            {% endif %}
+            </div>
+        </div>         
         
     </div>
 
-    <script>
-        const buttons = document.querySelectorAll('[data-bs-toggle="collapse"]');
-
-        buttons.forEach(button => {
-        button.addEventListener('click', () => {
-
-                document.querySelectorAll('.collapse')
-                  .forEach(collapse => {
-                      collapse.classList.remove('show');
-                  });
-
-        });
-        });
-    </script>
-    <script>
-        const buttonss = document.querySelectorAll('[data-bs-toggle="collapse"]');
-
-        buttonss.forEach(button => {
-        button.addEventListener('click', function() {
-            buttonss.forEach(button => {
-            button.disabled = true;
-            });
-
-            setTimeout(function() {
-            buttonss.forEach(button => {
-                button.disabled = false;
-            });
-            }, 400);
-        });
-        });
-    </script>
-
-    <!--collapse 페이지 크기 조절 -->
-    <script>
-        const parent1s = document.querySelectorAll('.page_wrap');
-        const child = document.querySelector('.page_contents');
-    
-        const adjustParentHeight = () => {
-        parent1s.forEach(parent1 => {
-            parent1.style.height = child.offsetHeight + 'px';
-            parent1.closest('.subpage_wrap').style.height = parent1.offsetHeight + 'px';
-        });
-        };
-    
-        const collapseElements = document.querySelectorAll('.collapse');
-        collapseElements.forEach(collapseElement => {
-        collapseElement.addEventListener('shown.bs.collapse', adjustParentHeight);
-        collapseElement.addEventListener('hidden.bs.collapse', adjustParentHeight);
-        });
-    </script>
-    <!--collapse 페이지 크기 조절 -->
     
     <!-- {% if product.is_need_detail %}
         <div class="pd_info_table_wrap onlym">
@@ -247,8 +135,5 @@
         </div>
     {% endif %} -->
         
-        
-
-</div>
 {% endblock content %}
     

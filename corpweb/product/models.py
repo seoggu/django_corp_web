@@ -35,6 +35,14 @@ class Press(models.Model):
     context=models.TextField()
     name=models.CharField(max_length=255,null=True)
     
+    company=models.CharField(max_length=255,null=True,blank=True)
+    max_power=models.CharField(max_length=255,null=True,blank=True)
+    stroke=models.CharField(max_length=255,null=True,blank=True)
+    stroke_speed=models.CharField(max_length=255,null=True,blank=True)
+    hydraulic_press=models.CharField(max_length=255,null=True,blank=True)
+    quantity=models.CharField(max_length=255,null=True,blank=True)
+    
+    
     created_at=models.DateField(auto_now_add=True)
     
     def __str__(self):

@@ -6,7 +6,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<meta name="keywords" content="">
-		<title>유창정밀금속</title>
+		<title>{{maininfo.last.name_kr}}</title>
 
         {% block extrahead %}   
         {% endblock extrahead %}
@@ -47,10 +47,10 @@
 
                     <div class="footer">
                         <div class="ft_top">
-                            <p>대구광역시 북구 검단로 135 검단팩토리밸리 108동 117~118호</p>
+                            <p>{{maininfo.last.location_kr}}</p>
                         </div>
                         <div class="ft_bot">
-                            <p>㈜유창정밀금속<br>Copyright(c)<br>YUCHANG.<br>All Rights Reserved.</p>
+                            <p>㈜{{maininfo.last.name_kr}}<br>Copyright(c)<br>{{maininfo.last.name_en}}.<br>All Rights Reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -141,8 +141,8 @@
     
         <!-- 모바일 footer -->
         <div class="m_footer m_sub_footer">
-            <p>대구광역시 북구 검단로 135 검단팩토리밸리 108동 117~118호</p>
-            <p>㈜유창정밀금속 Copyright(c) YUCHANG.All Rights Reserved. </p>
+            <p>{{maininfo.last.location_kr}}</p>
+            <p>㈜{{maininfo.last.name_kr}} Copyright(c) {{maininfo.last.name_en}}.All Rights Reserved. </p>
         </div>
         <!-- 모바일 footer 끝-->
     

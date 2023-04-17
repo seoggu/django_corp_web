@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import generic
 
 from product.models import Product
-from .models import Introduction,History, MainBusiness, Map, OrganizationChart, Revenue
+from .models import Introduction,History, MainBusiness, MainInfo, Map, OrganizationChart, Revenue
 
 # Create your views here.
 class IntroductionView(generic.DetailView):
@@ -15,8 +15,9 @@ class IntroductionView(generic.DetailView):
         return Introduction.objects.latest('created_at')
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
 
 class HistoryView(generic.DetailView):
     model=History
@@ -27,8 +28,9 @@ class HistoryView(generic.DetailView):
         return History.objects.latest('created_at')
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
     
 class MainBusinessView(generic.DetailView):
     model=MainBusiness
@@ -39,10 +41,11 @@ class MainBusinessView(generic.DetailView):
         return MainBusiness.objects.latest('created_at')
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         mainbusiness = MainBusiness.objects.latest('created_at').business_list
         business_list= mainbusiness.split(',')
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, business_list=business_list,  **kwargs)
+        return super().get_context_data(product_queryset=product_queryset, business_list=business_list,maininfo=maininfo,  **kwargs)
     
 class OrganizationChartView(generic.DetailView):
     model=OrganizationChart
@@ -53,8 +56,9 @@ class OrganizationChartView(generic.DetailView):
         return OrganizationChart.objects.latest('created_at')
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
     
 class MapView(generic.DetailView):
     model=Map
@@ -64,9 +68,10 @@ class MapView(generic.DetailView):
     def get_object(self, queryset=None):
         return Map.objects.latest('created_at')
     
-    def get_context_data(self, **kwargs): 
+    def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
     
     
 class RevenueView(generic.DetailView):
@@ -78,5 +83,6 @@ class RevenueView(generic.DetailView):
         return Revenue.objects.latest('created_at')
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)

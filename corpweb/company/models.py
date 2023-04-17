@@ -64,7 +64,6 @@ class Map(models.Model):
 class MainInfo(models.Model):
     name_kr=models.CharField(max_length=255,null=True,blank=True)
     name_en=models.CharField(max_length=255,null=True,blank=True)
-    name_cn=models.CharField(max_length=255,null=True,blank=True)
     
     
     logo=models.ImageField(upload_to='images/main/',null=True,blank=True)
@@ -74,28 +73,29 @@ class MainInfo(models.Model):
     brochure=models.FileField(upload_to='files/main',null=True,blank=True)
     
     location_kr=models.CharField(max_length=255,null=True,blank=True)
-    location_en=models.CharField(max_length=255,null=True,blank=True)
-    location_cn=models.CharField(max_length=255,null=True,blank=True)
+
     
     created_at=models.DateField(auto_now_add=True,null=True,blank=True)
     
     
 class MainSlide(models.Model):
-    
-    comment_en_1=models.CharField(max_length=255, null=True, blank=True)
+
     comment_kr_1=models.CharField(max_length=255, null=True, blank=True)
-    comment_cn_1=models.CharField(max_length=255, null=True, blank=True)
+    context_1=models.TextField(null=True, blank=True)
     image_1=models.ImageField(upload_to='images/main/', null=True, blank=True)
+    image_1_m=models.ImageField(upload_to='images/main/', null=True, blank=True)
     
-    comment_en_2=models.CharField(max_length=255, null=True, blank=True)
     comment_kr_2=models.CharField(max_length=255, null=True, blank=True)
-    comment_cn_2=models.CharField(max_length=255, null=True, blank=True)
+    context_2=models.TextField(null=True, blank=True)
     image_2=models.ImageField(upload_to='images/main/', null=True, blank=True)
+    image_2_m=models.ImageField(upload_to='images/main/', null=True, blank=True)
     
-    comment_en_3=models.CharField(max_length=255, null=True, blank=True)
     comment_kr_3=models.CharField(max_length=255, null=True, blank=True)
-    comment_cn_3=models.CharField(max_length=255, null=True, blank=True)
+    context_3=models.TextField(null=True, blank=True)
     image_3=models.ImageField(upload_to='images/main/', null=True, blank=True)
+    image_3_m=models.ImageField(upload_to='images/main/', null=True, blank=True)
+    
+    created_at=models.DateField(auto_now_add=True,null=True,blank=True)
     
 class Revenue(models.Model):
     

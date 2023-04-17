@@ -12,9 +12,6 @@
     $(".product").addClass("on");
     $("#press").addClass("on");
     sub_webLeftGnb();
-
-    
-    
 </script>
 {% endblock menujs %}
 
@@ -84,27 +81,128 @@
 
     <div class="product_wrap" id="collapse_wrap">
             <p style="text-align: center;">
+                <style>
+                .btn.active {
+                    background-color: #007bff;
+                    color: #fff;
+                    }
+                </style>
+                <script>
+                    $(document).ready(function() {
+                      $('.btn').click(function() {
+                        $('.btn').removeClass('active');
+                        $(this).addClass('active');
+                      });
+                    });
+                </script>
                 {% for press in press_list %}
-                <button style="margin-right: 10px; margin-bottom:10px; width:10rem;" class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#{{press.name}}" aria-expanded="false" aria-controls="{{press.name}}" data-parent="#collapse_wrap">
+                <button style="margin-right: 10px; margin-bottom:10px; width:10rem;" class="btn btn-secondary {% if forloop.first %}active{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#{{press.name}}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="{{press.name}}" data-parent="#collapse_wrap">
                     {{press.name}}
                 </button>
                 {% endfor %}
             </p>
             
             {% for press in press_list %}
-            <div class="collapse" id="{{press.name}}" data-parent="#collapse_wrap">
+            <div class="collapse {% if forloop.first %}show{% endif %}" id="{{press.name}}" data-parent="#collapse_wrap">
                 <div>
-                    <p class="explanation" >{{press.context}}</p>
-                <div class="product_img_box" style="width: 50%; height:50%">
+                    <!-- <p class="explanation" >{{press.context}}</p> -->
+                <div class="product_img_box" style="width: 70%; height:70%;">
                     <p class="product_img"><img src="{{press.image.url}}" alt=""></p>
                 </div>
                 <div class="pd_info_table_wrap onlyweb">
                     <h3><span>라인</span>설비제원</h3>
+                    <style>
+                        table {
+                          font-family: arial, sans-serif;
+                          border-collapse: collapse;
+                          width: 100%;
+                        }
+                        
+                        td, th {
+                          border: 1px solid #808080;
+                          text-align: left;
+                          padding: 4px;
+                        }
+                        
+                        tr:nth-child(even) {
+                          background-color: #dddddd;
+                        }
+                        </style>
+                    <table>
+                        <tr>
+                            <th>장비명</th>
+                            <th>제작업체</th>
+                            <th>최대 톤수</th>
+                            <th>스트로크 길이</th>
+                            <th>스트로크 수</th>
+                            <th>유압</th>
+                            <th style="text-align: center;">수량</th>
+                        </tr>
+                        <tr>
+                            <td>{{press.name}}</td>
+                            <td>{{press.company}}</td>
+                            <td>{{press.max_power}}</td>
+                            <td>{{press.stroke}}</td>
+                            <td>{{press.stroke_speed}}</td>
+                            <td>{{press.hydraulic_press}}</td>
+                            <td style="text-align: center;">{{press.quantity}}</td>
+                        </tr>
+                        
+                      </table>
                     <p><img  src="" alt=""></p>
                 </div>
+                {% if True %}
+                    <div class="pd_info_table_wrap onlym">
+                        <div class="m_pd_info_tablebox">
+                            <h4>설비 제원 <span>arrow</span></h4>
+                            <div class="m_pd_infobox" style="display: block;">
+                                <style>
+                                    table {
+                                        font-family: arial, sans-serif;
+                                        border-collapse: collapse;
+                                        width: 100%;
+                                    }
+                                    
+                                    td, th {
+                                        border: 1px solid #808080;
+                                        text-align: left;
+                                        padding: 4px;
+                                    }
+                                    
+                                    tr:nth-child(even) {
+                                        background-color: #dddddd;
+                                    }
+                                    </style>
+                                <table style="font-size: 0.5rem;">
+                                    <tr>
+                                        <th>장비명</th>
+                                        <th>제작업체</th>
+                                        <th>최대 톤수</th>
+                                        <th>스트로크 길이</th>
+                                        <th>스트로크 수</th>
+                                        <th>유압</th>
+                                        <th style="text-align: center;">수량</th>
+                                    </tr>
+                                    <tr>
+                                        <td>{{press.name}}</td>
+                                        <td>{{press.company}}</td>
+                                        <td>{{press.max_power}}</td>
+                                        <td>{{press.stroke}}</td>
+                                        <td>{{press.stroke_speed}}</td>
+                                        <td>{{press.hydraulic_press}}</td>
+                                        <td style="text-align: center;">{{press.quantity}}</td>
+                                    </tr>
+                                    
+                                    </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                {% endif %}
                 </div>
             </div>  
             {% endfor %}
+            
                 
 
             
@@ -162,42 +260,7 @@
         });
     </script>
     <!--collapse 페이지 크기 조절 -->
-    
-    <!-- {% if product.is_need_detail %}
-        <div class="pd_info_table_wrap onlym">
-            <div class="m_pd_info_tablebox">
-                <h4>설비 세부 카테고리 <span>arrow</span></h4>
-                <div class="m_pd_infobox">
-                    제원 테이블 이미지
-                </div>
-            </div>
-            <div class="m_pd_info_tablebox">
-                <h4>설비 세부 카테고리 <span>arrow</span></h4>
-                <div class="m_pd_infobox">
-                    제원 테이블 이미지
-                </div>
-            </div>
-            <div class="m_pd_info_tablebox">
-                <h4>설비 세부 카테고리 <span>arrow</span></h4>
-                <div class="m_pd_infobox">
-                    제원 테이블 이미지
-                </div>
-            </div>
-            <div class="m_pd_info_tablebox">
-                <h4>설비 세부 카테고리 <span>arrow</span></h4>
-                <div class="m_pd_infobox">
-                    제원 테이블 이미지
-                </div>
-            </div>
-            <div class="m_pd_info_tablebox">
-                <h4>설비 세부 카테고리 <span>arrow</span></h4>
-                <div class="m_pd_infobox">
-                    제원 테이블 이미지
-                </div>
-            </div>
-            
-        </div>
-    {% endif %} -->
+
         
         
 

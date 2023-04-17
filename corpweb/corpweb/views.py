@@ -2,6 +2,7 @@ from django.db.models import Q
 from django.http import FileResponse
 from django.shortcuts import render
 from django.views import generic
+from company.models import MainSlide
 from notice.models import Notice
 from product.models import Product
 from company.models import MainInfo
@@ -20,8 +21,10 @@ class HomeView(generic.TemplateView):
         product_queryset = Product.objects.all()
         notice_news = Notice.objects.filter(Q(division='option0') | Q(division='option1'))
         maininfo = MainInfo.objects.all()
+        mainslide = MainSlide.objects.latest('created_at')
         
-        context = super(HomeView, self).get_context_data(product_queryset=product_queryset, notice_news=notice_news, maininfo=maininfo, **kwargs)
+        
+        context = super(HomeView, self).get_context_data(product_queryset=product_queryset, notice_news=notice_news, maininfo=maininfo,mainslide=mainslide, **kwargs)
         return context
     
 def download_brochure(request):

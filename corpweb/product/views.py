@@ -1,6 +1,8 @@
 from django.http import FileResponse
 from django.shortcuts import render
 from django.views import generic
+
+from company.models import MainInfo
 from .models import FacilityList, Parts, Press, Product, ProductGoal
 
 # Create your views here.
@@ -14,8 +16,9 @@ class ProductView(generic.DetailView):
         return Product.objects.get(name=self.kwargs['product_name'])
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
     
 class ProductGoalView(generic.DetailView):
     model=ProductGoal
@@ -26,8 +29,9 @@ class ProductGoalView(generic.DetailView):
         return ProductGoal.objects.latest('created_at')
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
     
 
 class PartsView(generic.DetailView):
@@ -39,8 +43,9 @@ class PartsView(generic.DetailView):
         return Parts.objects.latest('created_at')
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
     
 def download_sample(request):
     file_obj = Parts.objects.latest('created_at')
@@ -59,8 +64,9 @@ class FacilityListView(generic.DetailView):
         return FacilityList.objects.latest('created_at')
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
     
 class PressView(generic.DetailView):
     model=Press
@@ -71,5 +77,6 @@ class PressView(generic.DetailView):
         return Press.objects.all()
     
     def get_context_data(self, **kwargs):
+        maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
-        return super().get_context_data(product_queryset=product_queryset, **kwargs)
+        return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)

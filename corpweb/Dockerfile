@@ -13,6 +13,7 @@ WORKDIR /home/django_corp_web/corpweb/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+
 EXPOSE 8000
 
 CMD ["bash", "-c","python manage.py collectstatic --noinput && python manage.py makemigrations && python manage.py migrate && gunicorn corpweb.wsgi --bind 0.0.0.0:8000"]

@@ -46,7 +46,7 @@ SECRET_KEY = read_secret('DJANGO_SECRET_KEY')
 # SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -66,6 +66,10 @@ INSTALLED_APPS = [
     'product',
     
 ]
+
+CSRF_COOKIE_DOMAIN = ['https://yuchangprecision.com']
+SESSION_COOKIE_DOMAIN = ['https://yuchangprecision.com']
+CSRF_TRUSTED_ORIGINS = ['https://yuchangprecision.com']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

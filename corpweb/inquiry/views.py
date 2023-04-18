@@ -1,3 +1,4 @@
+from django.http import FileResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -30,5 +31,7 @@ class InquirySuccessView(generic.TemplateView):
         maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
         return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
+
+
     
     

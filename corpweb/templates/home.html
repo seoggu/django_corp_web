@@ -35,7 +35,7 @@
                     <h3><a href="/"><img src="{% static '/main_image/yuchang_logo.PNG' %}" alt="logo"></a></h3>
                     <ul class="gnb">
                         <li><a href="/company/introduction">회사소개</a></li>
-                        <li><a href="/product/{{product_queryset.first.name}}">설비/제품</a></li>
+                        <li><a href="/product/1/product_goal">설비/제품</a></li>
                         <li><a href="/inquiry">거래문의</a></li>
                         <li><a href="/notice">공지사항</a></li>
                     </ul>
@@ -89,12 +89,12 @@
                             <p>{{mainslide.context_1}}</p>
                             <!-- <img src="images/main/main_img03.jpg" alt="mainimg01"> -->
                         </div>
-                        <div class="swiper-slide mainslide02" style="background:url('{{mainslide.image_1.url}}')no-repeat #000; background-size:cover;">
+                        <div class="swiper-slide mainslide02" style="background:url('{{mainslide.image_2.url}}')no-repeat #000; background-size:cover;">
                             <h2>{{mainslide.comment_kr_2}}</h2>
                             <p>{{mainslide.context_2}}</p>
                             <!-- <img src="images/main/main_img01.jpg" alt="mainimg02"> -->
                         </div>
-                        <div class="swiper-slide mainslide03" style="background:url('{{mainslide.image_1.url}}')no-repeat #000; background-size:cover;">
+                        <div class="swiper-slide mainslide03" style="background:url('{{mainslide.image_3.url}}')no-repeat #000; background-size:cover;">
                             <h2>{{mainslide.comment_kr_3}}</h2>
                             <p>{{mainslide.context_3}}</p>
                             <!-- <img src="images/main/main_img02.jpg" alt="mainimg03"> -->
@@ -112,8 +112,8 @@
             <!-- 메인슬라이드 끝-->
             <div class="right_menu">
                 <ul class="top">
-                    <li class="right_menu01" style="background-color: rgb(88, 126, 108);"><a href="/product/{{product_queryset.first.name}}">{{product_queryset.first.name}}</a></li>
-                    <li class="right_menu02" style="background-color: rgb(44, 29, 39);"><a href="/company/introduction">글로벌네트워크</a></li>
+                    <li class="right_menu01" style="background-color: rgb(88, 126, 108);"><a href="/product/1/facility_list"></a></li>
+                    <li class="right_menu02" style="background-color: rgb(44, 29, 39);"><a href="/company/introduction"></a></li>
                 </ul>
                 <ul class="mid">
                     <li class="right_menu03">
@@ -172,7 +172,7 @@
                 </div>
                 <div class="m_sub_menu">
                     <div class="m_sub_menu_con">
-                        <h2 class="m_logo"><a href="/"><img src="{% static '/widget_img/mobile/mobile_logo.PNG' %}" alt=""></a></h2>
+                        <h2 class="m_logo"><a href="/"><img src="{% static '/widget_img/mobile/mobile_logo.png' %}" alt=""></a></h2>
                         <ul class="m_sub_menu_list">
                             <li>
                                 <a class="subdetailmenubt" href="javascript:void(0);">회사소개 <span>></span></a>
@@ -220,13 +220,19 @@
             <!-- 모바일 메인슬라이드 -->
             <div class="m_main_slide">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide m_mainslide01">
-                        <img src="{{mainslide.image_1_m.url}}" alt="mainimg01">
+                    <div class="swiper-slide m_mainslide01" style="background-image: url('{{mainslide.image_1_m.url}}');
+                    background-size: cover;
+                    background-position: center;">
+                        <img src="{{mainslide.image_1_m.url}} " alt="mainimg01">
                     </div>
-                    <div class="swiper-slide m_mainslide02">
+                    <div class="swiper-slide m_mainslide02" style="background-image: url('{{mainslide.image_2_m.url}}');
+                    background-size: cover;
+                    background-position: center;">
                         <img src="{{mainslide.image_2_m.url}}" alt="mainimg02">
                     </div>
-                    <div class="swiper-slide m_mainslide03">
+                    <div class="swiper-slide m_mainslide03" style="background-image: url('{{mainslide.image_3_m.url}}');
+                    background-size: cover;
+                    background-position: center;">
                         <img src="{{mainslide.image_3_m.url}}" alt="mainimg03">
                     </div>
                 </div>
@@ -242,9 +248,9 @@
             <!-- 모바일 메인 퀵배너 -->
             <div class="quick_banner_box">
                 <ul>
-                    <li><a href="/product/{{product_queryset.first.name}}"><img src="{% static '/main_image/m_quickmenu01.png' %}" alt=""></a></li>
-                    <li><a href="/company/introduction"><img src="{% static '/main_image/m_quickmenu02.png' %}" alt=""></a></li>
-                    <li><a href="javascript:alert('준비중입니다.');"><img src="{% static '/main_image/m_quickmenu03.png' %}" alt=""></a></li>
+                    <li><a href="/product/{{product_queryset.first.name}}"><img src="{% static '/widget_img/mobile/facil_m_w.jpg' %}" alt=""></a></li>
+                    <li><a href="/company/introduction"><img src="{% static '/widget_img/mobile/aboutus_m_w.jpg' %}" alt=""></a></li>
+                    <li><a href="/product/1/parts"><img src="{% static '/widget_img/mobile/parts_m_w.png' %}" alt=""></a></li>
                 </ul>
             </div>
             <!-- 모바일 메인 퀵배너 끝-->

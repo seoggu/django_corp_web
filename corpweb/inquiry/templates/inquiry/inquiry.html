@@ -45,15 +45,15 @@
             <form action="{% url 'inquiry:inquiry' %}" method="post">
                 {% csrf_token %}
                 <div class="inquiry_inputbox">
-                    <h4><span><img src="" alt=""></span>업체명 혹은 성함</h4>
+                    <h4><span><img src="{% static 'widget_img/inquiry_name.jpg' %}" alt=""></span>업체명 혹은 성함</h4>
                     <p>{{form.name}}</p>
                 </div>
                 <div class="inquiry_inputbox">
-                    <h4><span><img src="" alt=""></span>이메일</h4>
+                    <h4><span><img src="{% static 'widget_img/inquiry_email.jpg' %}" alt=""></span>이메일</h4>
                     <p>{{form.email}}</p>
                 </div>
                 <div class="inquiry_inputbox">
-                    <h4><span><img src="" alt=""></span>문의내용</h4>
+                    <h4><span><img src="{% static 'widget_img/inquiry_context.jpg' %}" alt=""></span>문의내용</h4>
                     <p>{{form.context}}</p>
                 </div>
                 <div class="board_bts">

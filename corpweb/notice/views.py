@@ -1,4 +1,7 @@
-from django.shortcuts import render
+import os
+from django.conf import settings
+from django.http import FileResponse, HttpResponse
+from django.shortcuts import get_object_or_404, render
 from django.views import generic
 from company.models import MainInfo
 
@@ -28,3 +31,11 @@ class NoticeDetailView(generic.DetailView):
         maininfo= MainInfo.objects.all()
         product_queryset = Product.objects.all()
         return super().get_context_data(product_queryset=product_queryset,maininfo=maininfo, **kwargs)
+    
+def download_file(request, pk):
+    obj = get_object_or_404(Notice, pk=pk)
+    file_path = os.path.join(settings.MEDIA_ROOT, str(obj.file)) # get the path to the file
+    with open(file_path, 'rb') as fh:
+        response = HttpResponse(fh.read(), content_type='application/octet-stream') # adjust content type as needed
+        response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+        return response

@@ -37,7 +37,16 @@
             <span class="board_date">{{notice.created_at|date:"Y-m-d"}}</span>
         </div>
         <div class="board_con">
-            <pre>{{notice.context}}</pre>
+            
+            {% if notice.file %}
+                <a href="{% url 'notice:download_file' pk=notice.pk %}" style="display: inline-block; width: auto; color:dodgerblue;">첨부파일 다운로드</a>
+            {% endif %}
+            
+            {% if notice.image %}
+                <pre><img src="{{notice.image.url}}" style="height: 20rem; width: 20rem;" alt=""><br>{{notice.context}}</pre>
+            {% else %}
+                <pre><br>{{notice.context}}</pre>
+            {% endif %}
             <hr>
             
         </div>

@@ -67,8 +67,8 @@ INSTALLED_APPS = [
     
 ]
 
-CSRF_COOKIE_DOMAIN = ['https://yuchangprecision.com']
-SESSION_COOKIE_DOMAIN = ['https://yuchangprecision.com']
+# CSRF_COOKIE_DOMAIN = ['https://yuchangprecision.com']
+# SESSION_COOKIE_DOMAIN = ['https://yuchangprecision.com']
 CSRF_TRUSTED_ORIGINS = ['https://yuchangprecision.com']
 
 MIDDLEWARE = [

@@ -15,17 +15,22 @@ services:
       - "80:80"
 
   django_corp_web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-
-    container_name: django_corp_web
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
     image: django_corp_web
+    container_name: django_corp_web
     networks:
       - network
     volumes:
       - static-volume:/home/django_corp_web/corpweb/staticfiles
       - media-volume:/home/django_corp_web/corpweb/media
+    secrets:
+      - PSQL_PASSWORD
+      - PSQL_HOST
+      - DJANGO_SECRET_KEY
+
+
 networks:
   network:
     name: network
@@ -34,3 +39,11 @@ volumes:
     name: static-volume
   media-volume:
     name: media-volume
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
+  PSQL_PASSWORD:
+    external: true
+  PSQL_HOST:
+    external: true

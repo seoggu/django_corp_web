@@ -68,7 +68,7 @@
                         <li id="facility_list"><a href="/product/1/facility_list">설비 현황</a></li>
                         <li id="press"><a href="/product/1/press">PRESS</a></li>
                         {% for product in product_queryset %}
-                        <li id="{{product.name}}"><a href="/product/1/product_goal">{{product.name}}</a></li> 
+                        <li id="{{product.name}}"><a href="/product/{{product.name}}">{{product.name}}</a></li> 
                         {% endfor %}
                         <li id="parts"><a href="/product/1/parts">주요 제품</a></li>
                     </ul>

@@ -29,6 +29,7 @@ services:
       - PSQL_PASSWORD
       - PSQL_HOST
       - DJANGO_SECRET_KEY
+      - DB_NAME
 
 
 networks:
@@ -46,4 +47,6 @@ secrets:
   PSQL_PASSWORD:
     external: true
   PSQL_HOST:
+    external: true
+  DB_NAME:
     external: true

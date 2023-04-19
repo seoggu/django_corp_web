@@ -7,5 +7,5 @@ app_name='notice'
 urlpatterns=[
     path('',NoticeListView.as_view(),name='bulletin_board'),
     path('detail/<int:pk>',NoticeDetailView.as_view(), name='detail'),
-    path('dowload_file/<int:pk>',download_file, name='download_file')
+    path('download_file/<int:pk>',download_file, name='download_file')
 ]

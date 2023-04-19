@@ -1,6 +1,7 @@
 from django.db.models import Q
 from django.http import FileResponse
 from django.shortcuts import render
+from django.urls import reverse
 from django.views import generic
 from company.models import MainSlide
 from notice.models import Notice
@@ -34,4 +35,8 @@ def download_brochure(request):
     response = FileResponse(open(file_path, 'rb'))
     response['Content-Disposition'] = f'attachment; filename={file_name}'
     return response
+    
+class Robots(generic.TemplateView):
+    template_name='robots.txt'
+    content_type='text/plain'
     

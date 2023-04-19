@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from .views import  download_brochure, home_view, HomeView, Robots
+from .views import  GoogleVerification, download_brochure, home_view, HomeView, Robots
 from django.conf import settings
 from django.conf.urls.static import static
 from .sitemaps import *
@@ -33,6 +33,7 @@ urlpatterns = [
     path('notice/',include('notice.urls')),
     path('download_brochure/',download_brochure, name="download_brochure"),
     path('robots.txt',Robots.as_view(), name='robots'),
-    path('sitemap.xml', sitemap, {'sitemaps':sitemaps}, name='sitemap' ), 
+    path('sitemap.xml', sitemap, {'sitemaps':sitemaps}, name='sitemap' ),
+    path('googlec16d523d61391181.html',GoogleVerification.as_view, name='googleverification')
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

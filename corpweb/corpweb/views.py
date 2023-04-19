@@ -40,3 +40,7 @@ class Robots(generic.TemplateView):
     template_name='robots.txt'
     content_type='text/plain'
     
+    
+class GoogleVerification(generic.TemplateView):
+    template_name='googlec16d523d61391181.html'
+    

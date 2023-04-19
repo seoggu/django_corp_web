@@ -34,6 +34,6 @@ urlpatterns = [
     path('download_brochure/',download_brochure, name="download_brochure"),
     path('robots.txt',Robots.as_view(), name='robots'),
     path('sitemap.xml', sitemap, {'sitemaps':sitemaps}, name='sitemap' ),
-    path('googlec16d523d61391181.html',GoogleVerification.as_view, name='googleverification')
+    path('googlec16d523d61391181.html',GoogleVerification.as_view(), name='googleverification')
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
